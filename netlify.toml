@@ -1,0 +1,17 @@
+# Netlify config for the ANVIXA site itself.
+#
+# This proxies every /api/* request to your backend (Render, Railway, etc.)
+# so the browser only ever talks to one origin — no CORS setup needed, and
+# public/index.html can keep API_BASE as '' (same-origin).
+#
+# Replace YOUR-BACKEND-URL below with your real backend URL once it's deployed
+# (e.g. https://anvixa-api.onrender.com), then redeploy this Netlify site.
+
+[build]
+  publish = "public"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://YOUR-BACKEND-URL.onrender.com/api/:splat"
+  status = 200
+  force = true

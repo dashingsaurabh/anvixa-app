@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#0c1a17">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANVIXA · Assessment &amp; Admin Console — Twiraa Creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c1a17;--cream:#f4f2ec;--paper:#fdfcf9;--gold:#2f9b86;
+  --gold-lt:#8fd3c2;--gold-pale:#e6f4ef;--char:#26302d;--muted:#6c7a75;
+  --border:#dde4e0;--bg2:#eef3f0;--white:#fff;
+  --warm:#c9972a;--warm-lt:#e8d4a8;
+  --green:#1f7a5f;--green-bg:#d7efe7;
+  --amber:#8a5f14;--amber-bg:#f6ecd3;
+  --red:#a5432e;--red-bg:#f6e3dd;
+  --blue:#256b7a;--blue-bg:#daecf1;
+  --purple:#57487a;--purple-bg:#e8e3f1;
+  --logo-url:url("data:image/png;base64,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");
+}
+.logo{display:inline-block;background-image:var(--logo-url);background-repeat:no-repeat;background-position:left center;background-size:contain;aspect-ratio:900/128;vertical-align:middle}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.6;min-height:100vh}
+.screen{display:none;min-height:100vh}.screen.active{display:block}
+strong,b{font-weight:600}
+
+/* ══ INTRO ══ */
+#intro{display:none;background:var(--ink);color:var(--cream);min-height:100vh;position:relative;overflow:hidden}
+#intro.active{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem}
+.orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb1{top:-25%;left:-20%;width:80vw;height:80vw;background:radial-gradient(circle,rgba(61,158,137,.14) 0%,transparent 65%)}
+.orb2{bottom:-30%;right:-15%;width:65vw;height:65vw;background:radial-gradient(circle,rgba(61,158,137,.08) 0%,transparent 65%)}
+.orb3{top:40%;left:55%;width:30vw;height:30vw;background:radial-gradient(circle,rgba(61,158,137,.05) 0%,transparent 65%)}
+.i-rule{width:36px;height:1px;background:var(--gold);margin:0 auto 1.5rem;position:relative;z-index:1}
+.i-eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:1.5rem;font-weight:300;position:relative;z-index:1}
+.i-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;line-height:1.05;margin-bottom:1.2rem;position:relative;z-index:1;color:#fff}
+.i-title em{font-style:italic;color:var(--gold-lt)}
+.i-desc{max-width:500px;font-weight:300;color:rgba(248,245,239,.65);margin-bottom:2rem;position:relative;z-index:1;font-size:16px;line-height:1.75}
+.i-pitch{max-width:520px;background:rgba(61,158,137,.12);border:1px solid rgba(61,158,137,.25);padding:1rem 1.25rem;margin-bottom:2.5rem;position:relative;z-index:1;font-size:14px;color:var(--gold-lt);line-height:1.7;font-style:italic}
+.i-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;position:relative;z-index:1}
+.i-stat{text-align:center}
+.i-stat-n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold-lt);display:block;line-height:1}
+.i-stat-l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,245,239,.45);margin-top:4px}
+.i-features{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;position:relative;z-index:1}
+.i-feat{font-size:12px;color:rgba(248,245,239,.5);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:5px 14px;border-radius:20px;display:flex;align-items:center;gap:6px}
+.i-feat-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.btn-start{position:relative;z-index:1;padding:1rem 3rem;background:var(--gold);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.btn-start:hover{background:#256f5e;transform:translateY(-2px)}
+.i-trust{position:relative;z-index:1;margin-top:2rem;font-size:11px;color:rgba(248,245,239,.3);letter-spacing:.05em}
+
+/* ══ INTAKE ══ */
+#intake{display:none;background:var(--paper)}
+#intake.active{display:block}
+.topbar{background:var(--ink);padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.topbar-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold-lt)}
+.topbar-step{font-size:11px;color:rgba(248,245,239,.35);letter-spacing:.1em;text-transform:uppercase}
+.intake-wrap{max-width:640px;margin:0 auto;padding:3.5rem 2rem 5rem}
+.intake-title{font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:.4rem;font-weight:500}
+.intake-sub{color:var(--muted);font-size:14px;margin-bottom:2.5rem;line-height:1.6}
+.req-note{font-size:11px;color:var(--red);margin-bottom:2rem;display:flex;align-items:center;gap:5px}
+.fg{margin-bottom:1.2rem}
+.fl{font-size:11px;font-weight:500;color:var(--char);letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;margin-bottom:6px}
+.req-mark{color:var(--red)}
+.fi,.fs{width:100%;padding:11px 14px;border:1.5px solid var(--border);background:#fff;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .18s;border-radius:0}
+.fi:focus,.fs:focus{border-color:var(--gold)}
+.fi.err,.fs.err{border-color:var(--red)}
+.fg-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-go{width:100%;padding:1.1rem;background:var(--ink);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:1.5rem;transition:background .2s}
+.btn-go:hover{background:var(--char)}
+.err-msg{font-size:12px;color:var(--red);margin-top:5px;display:none}
+
+/* ══ QUIZ ══ */
+#quiz{display:none;background:var(--paper)}
+#quiz.active{display:block}
+.qtop{position:sticky;top:0;z-index:100;background:var(--ink)}
+.qtop-inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem}
+.qtop-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold-lt)}
+.qtop-meta{display:flex;align-items:center;gap:16px}
+.qtop-prog-txt{font-size:12px;color:rgba(248,245,239,.5)}
+.sec-pips{display:inline-flex;gap:6px;align-items:center}
+.sec-pip{width:22px;height:6px;border-radius:3px;background:rgba(248,245,239,.18);transition:background .3s}
+.sec-pip.done{background:var(--gold)}
+.sec-pip.current{background:rgba(47,155,134,.5)}
+.qtop-save{font-size:11px;color:rgba(61,158,137,.7);letter-spacing:.06em;cursor:pointer;text-transform:uppercase;border:none;background:none;font-family:'DM Sans',sans-serif}
+.qtop-save:hover{color:var(--gold-lt)}
+.prog-wrap{height:2px;background:rgba(255,255,255,.07)}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));transition:width .4s ease}
+.sec-bar{background:var(--gold-pale);border-bottom:1px solid rgba(61,158,137,.3);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.sec-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);display:inline-block;margin-right:7px}
+.sec-txt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.sec-hint{font-size:11px;color:var(--muted);font-style:italic}
+.sec-steps{display:flex;gap:4px}
+.sec-step{width:18px;height:3px;border-radius:2px;background:var(--border);transition:background .3s}
+.sec-step.done{background:var(--gold)}
+.sec-step.active{background:rgba(61,158,137,.5)}
+
+.qbody{max-width:800px;margin:0 auto;padding:2.5rem 2rem 6rem}
+.qcard{display:none;animation:rise .28s ease}
+.qcard.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.q-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--border);line-height:1;margin-bottom:.35rem;font-weight:400}
+.q-text{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;line-height:1.4;color:var(--ink);margin-bottom:.45rem;max-width:660px}
+.q-sub{font-size:13px;color:var(--muted);margin-bottom:.9rem;font-style:italic;line-height:1.55}
+.sel-ctr{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);background:var(--bg2);padding:4px 12px;border-radius:20px;border:1px solid var(--border);margin-bottom:1.4rem;transition:border-color .2s}
+.sel-ctr.has-sel{border-color:rgba(61,158,137,.5);color:var(--gold)}
+.sel-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+.opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.75rem}
+@media(max-width:580px){.opts-grid{grid-template-columns:1fr}}
+.opt{text-align:left;padding:.95rem 1.1rem;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--char);font-size:13.5px;line-height:1.55;display:flex;align-items:flex-start;gap:10px;transition:border-color .14s,background .14s,transform .1s;width:100%;position:relative}
+.opt:hover{border-color:var(--gold);background:var(--gold-pale);transform:translateY(-1px)}
+.opt.sel{border-color:var(--gold);background:var(--gold-pale)}
+.opt-box{width:18px;height:18px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:2px;transition:all .13s;position:relative;background:var(--white)}
+.opt.sel .opt-box{background:var(--gold);border-color:var(--gold)}
+.opt-box::after{content:"✓";position:absolute;top:50%;left:50%;transform:translate(-50%,-53%);font-size:10px;color:#fff;opacity:0;transition:opacity .12s}
+.opt.sel .opt-box::after{opacity:1}
+.opt-ltr{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);font-weight:600;flex-shrink:0;min-width:16px;margin-top:1px}
+.opt-body{flex:1}
+
+.qnav{display:flex;align-items:center;justify-content:space-between;padding-top:1.5rem;border-top:1px solid var(--border)}
+.btn-nav{padding:.7rem 1.75rem;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--char);transition:all .16s}
+.btn-nav:hover:not(:disabled){border-color:var(--ink);background:var(--ink);color:#fff}
+.btn-nav:disabled{opacity:.3;cursor:not-allowed}
+.btn-next{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-next:hover{background:var(--char)!important}
+.btn-submit{background:var(--gold);color:#fff;border-color:var(--gold);padding:.7rem 2.5rem}
+.btn-submit:hover{background:#256f5e!important}
+.nav-hint{font-size:12px;color:var(--red);font-weight:500}
+
+/* ══ RESULTS ══ */
+#results{display:none;background:var(--paper)}
+#results.active{display:block}
+
+.r-hero{background:var(--ink);padding:3.5rem 2rem 3rem;text-align:center;position:relative;overflow:hidden;color:var(--cream)}
+.r-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -10%,rgba(61,158,137,.2) 0%,transparent 55%);pointer-events:none}
+.r-hero-eyebrow{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:.8rem;position:relative}
+.r-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2.5rem);margin-bottom:.3rem;position:relative;font-weight:400}
+.r-meta{font-size:13px;color:rgba(248,245,239,.4);margin-bottom:.5rem;position:relative}
+.r-date{font-size:11px;color:rgba(248,245,239,.3);margin-bottom:2rem;position:relative;letter-spacing:.05em}
+
+.ring-wrap{display:inline-flex;align-items:center;justify-content:center;position:relative;margin-bottom:1.2rem}
+.ring-svg{width:160px;height:160px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:rgba(255,255,255,.07);stroke-width:9}
+.ring-fill{fill:none;stroke-width:9;stroke-linecap:butt;stroke:var(--gold);transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1)}
+.ring-inner{position:absolute;text-align:center}
+.ring-pct{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:#fff;line-height:1;display:block}
+.ring-lbl{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-lt);margin-top:3px}
+.band-pill{display:inline-block;padding:5px 20px;border:1px solid var(--gold);color:var(--gold-lt);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;margin-bottom:1.5rem;position:relative}
+
+.bench-strip{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:.85rem 1.5rem;margin:0 auto;max-width:560px;position:relative}
+.bench-item{text-align:center}
+.bench-n{font-family:'Cormorant Garamond',serif;font-size:1.3rem;line-height:1;display:block}
+.bench-l{font-size:10px;color:rgba(248,245,239,.4);letter-spacing:.06em;margin-top:2px}
+.bench-sep{width:1px;height:32px;background:rgba(255,255,255,.1)}
+
+.r-body{max-width:940px;margin:0 auto;padding:3rem 2rem 5rem}
+.r-sec-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;margin-bottom:1.25rem;padding-bottom:.7rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-weight:500}
+.r-sec-title::before{content:'';width:4px;height:1.4rem;background:var(--gold);display:inline-block;flex-shrink:0}
+
+/* Scorecard with benchmark */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;margin-bottom:3rem}
+.cat-card{background:var(--white);border:1px solid var(--border);padding:1.25rem}
+.cat-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.cat-name{font-size:13px;font-weight:500;color:var(--char);flex:1}
+.cat-scores{text-align:right}
+.cat-pct{font-family:'Cormorant Garamond',serif;font-size:1.4rem;line-height:1;display:block}
+.cat-vs{font-size:10px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:4px;justify-content:flex-end}
+.cat-vs-arrow{font-size:11px}
+.bar-bg{height:4px;background:var(--bg2);border-radius:2px;overflow:hidden;margin-bottom:4px}
+.bar-my{height:100%;border-radius:2px;transition:width 1.1s ease}
+.bar-bench{height:2px;background:rgba(0,0,0,.15);border-radius:1px;margin-bottom:8px;position:relative}
+.bar-bench-fill{height:100%;background:rgba(0,0,0,.25);border-radius:1px}
+.bench-label{font-size:10px;color:var(--muted);margin-bottom:8px}
+.tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:3px;letter-spacing:.04em}
+.tag-s{background:var(--green-bg);color:var(--green)}
+.tag-o{background:var(--amber-bg);color:var(--amber)}
+.tag-g{background:var(--red-bg);color:var(--red)}
+
+/* Insight row */
+.insight-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem}
+@media(max-width:640px){.insight-row{grid-template-columns:1fr}}
+.ins-card{background:var(--white);border:1px solid var(--border);padding:1.5rem}
+.ins-lbl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:500;display:flex;align-items:center;gap:7px}
+.ins-dot{display:inline-flex;width:16px;height:16px;border-radius:50%;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:700;flex-shrink:0}
+.dot-g{background:var(--green)}.dot-r{background:var(--red)}
+.ins-item{font-size:13px;color:var(--char);padding:7px 0;border-bottom:1px solid var(--bg2);line-height:1.55}
+.ins-item:last-child{border:none}
+
+/* Radar-like visual */
+.radar-wrap{margin-bottom:3rem;display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start}
+.radar-legend{flex:1;min-width:220px}
+.radar-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bg2)}
+.radar-item:last-child{border:none}
+.radar-bar-wrap{flex:1;position:relative;height:20px;display:flex;align-items:center;gap:4px}
+.radar-my{height:8px;border-radius:2px;transition:width 1s ease;position:relative;z-index:2}
+.radar-bench-line{position:absolute;top:0;height:100%;width:2px;background:var(--muted);opacity:.4;z-index:3}
+.radar-name{font-size:12px;color:var(--char);font-weight:500;min-width:140px}
+.radar-val{font-size:11px;color:var(--muted);min-width:36px;text-align:right}
+
+/* Suggestions */
+.sug-list{margin-bottom:3rem}
+.sug-card{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin-bottom:11px;display:flex;gap:1.25rem;align-items:flex-start;transition:transform .15s}
+.sug-card:hover{transform:translateY(-2px)}
+.sug-card.ph{border-left:4px solid var(--red);border-radius:0 0 0 0}
+.sug-card.pm{border-left:4px solid var(--amber)}
+.sug-card.ps{border-left:4px solid var(--blue)}
+.sug-n{font-family:'Cormorant Garamond',serif;font-size:2rem;line-height:1;flex-shrink:0;min-width:34px;font-weight:400}
+.sug-card.ph .sug-n{color:var(--red)}
+.sug-card.pm .sug-n{color:var(--amber)}
+.sug-card.ps .sug-n{color:var(--blue)}
+.sug-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.sug-body{font-size:13px;color:var(--muted);line-height:1.65}
+.sug-pri{display:inline-block;font-size:10px;padding:2px 9px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-top:8px;border-radius:3px}
+.pri-h{background:var(--red-bg);color:var(--red)}
+.pri-m{background:var(--amber-bg);color:var(--amber)}
+.pri-s{background:var(--blue-bg);color:var(--blue)}
+.pri-g{background:var(--purple-bg);color:var(--purple)}
+
+/* 90-day roadmap */
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:3rem}
+@media(max-width:600px){.roadmap{grid-template-columns:1fr}}
+.roadmap-card{background:var(--white);border:1px solid var(--border);padding:1.25rem}
+.roadmap-phase{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.roadmap-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:.75rem}
+.roadmap-items{list-style:none}
+.roadmap-items li{font-size:12px;color:var(--muted);padding:4px 0;border-bottom:1px solid var(--bg2);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.roadmap-items li:last-child{border:none}
+.ri-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px}
+
+/* Maturity narrative */
+.narrative{background:var(--ink);color:var(--cream);padding:2rem 2rem 2rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.narrative::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 50%,rgba(61,158,137,.12) 0%,transparent 60%);pointer-events:none}
+.narrative-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:.6rem;position:relative}
+.narrative-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.7;color:rgba(248,245,239,.85);position:relative;font-style:italic}
+
+/* Share / CTA */
+.r-cta{background:var(--ink);padding:2.5rem 2rem;text-align:center}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:.6rem;font-weight:400;color:#fff}
+.cta-body{font-size:14px;color:rgba(248,245,239,.55);margin-bottom:1.5rem;line-height:1.75}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-cta{padding:.9rem 2rem;background:var(--gold);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn-cta:hover{background:#256f5e}
+.btn-cta-out{background:transparent;border:1px solid rgba(232,213,163,.3);color:var(--gold-lt)}
+.btn-cta-out:hover{background:rgba(61,158,137,.08)}
+
+/* Share card overlay */
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;padding:2rem}
+.share-overlay.open{display:flex}
+.share-card{background:var(--white);max-width:480px;width:100%;padding:2rem}
+.share-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:.5rem}
+.share-sub{font-size:13px;color:var(--muted);margin-bottom:1.5rem}
+.share-preview{background:var(--ink);padding:1.5rem;text-align:center;margin-bottom:1.5rem;position:relative}
+.share-preview-band{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:.5rem}
+.share-preview-pct{font-family:'Cormorant Garamond',serif;font-size:3rem;color:#fff;line-height:1}
+.share-preview-co{font-size:13px;color:rgba(248,245,239,.5);margin-top:.25rem}
+.share-preview-tag{display:inline-block;margin-top:.75rem;padding:4px 16px;border:1px solid var(--gold);color:var(--gold-lt);font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+.share-actions{display:flex;gap:8px;flex-wrap:wrap}
+.share-btn{flex:1;padding:.7rem;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:1.5px solid var(--border);background:var(--white);font-family:'DM Sans',sans-serif;min-width:120px}
+.share-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.share-close{position:absolute;top:.75rem;right:.75rem;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--muted)}
+
+.r-footer{text-align:center;padding:1rem;font-size:11px;color:var(--muted);border-top:1px solid var(--border)}
+
+/* ── STAKEHOLDER MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);max-width:520px;width:100%;padding:2rem;position:relative;max-height:80vh;overflow-y:auto}
+.modal h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:.4rem}
+.modal-sub{font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.6}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--muted)}
+
+@media print{
+  .roadmap-shield{position:relative}
+.roadmap-shield .roadmap{filter:blur(7px);opacity:.55;pointer-events:none;user-select:none}
+.roadmap-veil{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:1.5rem;background:linear-gradient(180deg,rgba(253,252,249,.55),rgba(253,252,249,.82))}
+.roadmap-veil-inner{background:var(--white);border:1px solid var(--border);padding:1.6rem 1.8rem;box-shadow:0 8px 30px rgba(0,0,0,.08);max-width:520px}
+@media print{.roadmap-shield .roadmap{filter:none;opacity:1}.roadmap-veil{display:none}}
+.qtop,.qnav,.r-cta,.topbar,.share-overlay,.modal-overlay,.r-sec-title::before{display:none!important}
+  .r-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:1.5rem}
+  .sug-card{break-inside:avoid}
+  .cat-grid,.roadmap{grid-template-columns:1fr 1fr}
+}
+
+/* ══ ADMIN CONSOLE (new — built on the same tokens above) ══ */
+#admin-gate{display:none;background:var(--ink);min-height:100vh;align-items:center;justify-content:center;padding:2rem}
+#admin-gate.active{display:flex}
+.gate-card{background:var(--paper);max-width:380px;width:100%;padding:2.5rem 2rem;text-align:center}
+.gate-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);letter-spacing:.1em;margin-bottom:.3rem}
+.gate-sub{font-size:12px;color:var(--muted);margin-bottom:1.5rem}
+.gate-card .fi{text-align:center;font-family:monospace;letter-spacing:.2em}
+.gate-note{font-size:11px;color:var(--muted);line-height:1.7;margin-top:1.25rem}
+.gate-back{background:none;border:none;color:var(--gold);text-decoration:underline;font-size:11.5px;margin-top:.75rem;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+#admin-dash{display:none;background:var(--paper)}
+#admin-dash.active{display:block}
+#admin-detail{display:none;background:var(--paper)}
+#admin-detail.active{display:block}
+.admin-topbar{background:var(--ink);padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.admin-topbar-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold-lt)}
+.admin-topbar-tag{font-size:11px;color:rgba(248,245,239,.4);letter-spacing:.06em;text-transform:uppercase}
+.admin-body{max-width:1180px;margin:0 auto;padding:2.5rem 2rem 5rem}
+.admin-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.4rem}
+.admin-h1{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;margin-bottom:1.5rem}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+@media(max-width:760px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:var(--white);border:1px solid var(--border);padding:1.1rem 1.25rem}
+.stat-card .n{font-family:'Cormorant Garamond',serif;font-size:2rem;line-height:1;color:var(--ink)}
+.stat-card .l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:4px;font-weight:500}
+.admin-toolbar{display:flex;gap:.75rem;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap}
+.admin-toolbar .fi{max-width:340px}
+table.data{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--border);font-size:13px}
+table.data th{text-align:left;background:var(--ink);color:var(--cream);font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:.75rem .9rem;font-weight:600}
+table.data td{padding:.8rem .9rem;border-top:1px solid var(--border);vertical-align:top}
+table.data tr.rowlink{cursor:pointer;transition:background .12s}
+table.data tr.rowlink:hover{background:var(--gold-pale)}
+.score-chip{font-weight:700;padding:2px 9px;font-size:12px;letter-spacing:.02em}
+.chip-critical{background:var(--red-bg);color:var(--red)}
+.chip-fragile{background:var(--amber-bg);color:var(--amber)}
+.chip-developing{background:var(--blue-bg);color:var(--blue)}
+.chip-mature{background:var(--green-bg);color:var(--green)}
+.empty-state{padding:3rem 1.5rem;text-align:center;color:var(--muted);border:1px dashed var(--border);background:var(--white);font-size:13.5px;line-height:1.7}
+
+.detail-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:1.75rem}
+.detail-head h1{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:500}
+.detail-meta{font-size:13px;color:var(--muted);margin-top:.3rem}
+.two-col{display:grid;grid-template-columns:1.35fr 1fr;gap:1.75rem}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}}
+.qa-section-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:1.75rem 0 .9rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.qa-item{background:var(--white);border:1px solid var(--border);padding:1rem 1.15rem;margin-bottom:.6rem}
+.qa-q{font-weight:600;font-size:13.5px;margin-bottom:.6rem;color:var(--ink)}
+.qa-opt{display:flex;align-items:baseline;gap:.5rem;font-size:12.5px;padding:.28rem 0;color:var(--muted)}
+.qa-opt.chosen{color:var(--ink);font-weight:600}
+.qa-opt .mark{width:14px;flex:0 0 14px;color:var(--gold);text-align:center}
+.side-stat{background:var(--white);border:1px solid var(--border);padding:1.1rem 1.25rem;margin-bottom:.9rem}
+.side-stat .l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin-bottom:.35rem}
+.side-stat .v{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--ink)}
+</style>
+
+<body>
+
+<!-- ══ INTRO ══ -->
+<section id="intro" class="screen active">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="i-rule"></div>
+  <div class="i-eyebrow" style="margin-bottom:.9rem"><span class="logo" role="img" aria-label="ANVIXA" style="height:44px"></span></div>
+  <div class="i-eyebrow" style="margin-bottom:1.5rem">MARKETING INTELLIGENCE PLATFORM</div>
+  <h1 class="i-title">Is your marketing<br>engine <em>actually</em> working?</h1>
+  <p class="i-desc">Most companies are leaving 25–35% of potential revenue on the table because of marketing gaps they cannot see — and therefore cannot fix.</p>
+  <div class="i-pitch">"The only diagnostic that benchmarks your marketing maturity against your industry and revenue stage — and tells you exactly what to fix first." <span style="display:block;margin-top:.5rem;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(61,158,137,.6)">— ANVIXA, a Twiraa Creatives platform</span></div>
+  <div class="i-stats">
+    <div class="i-stat"><span class="i-stat-n">50</span><span class="i-stat-l">Questions</span></div>
+    <div class="i-stat"><span class="i-stat-n">20</span><span class="i-stat-l">Minutes</span></div>
+    <div class="i-stat"><span class="i-stat-n">5</span><span class="i-stat-l">Dimensions</span></div>
+  </div>
+  <div class="i-features">
+    <span class="i-feat"><span class="i-feat-dot"></span>Live peer benchmarking</span>
+    <span class="i-feat"><span class="i-feat-dot"></span>Personalised roadmap</span>
+    <span class="i-feat"><span class="i-feat-dot"></span>Boardroom-ready report</span>
+  </div>
+  <button class="btn-start" onclick="goIntake()">Start Your Assessment &rarr;</button>
+  <p class="i-trust">Confidential &nbsp;&middot;&nbsp; No data sold &nbsp;&middot;&nbsp; Results delivered instantly</p>
+  <p class="i-trust" style="margin-top:.6rem"><button onclick="goAdminGate()" style="background:none;border:none;color:rgba(248,245,239,.45);text-decoration:underline;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">Twiraa team — Admin sign-in</button></p>
+</section>
+
+<!-- ══ INTAKE ══ -->
+<section id="intake" class="screen">
+  <div class="topbar"><span class="topbar-logo"><span class="logo" role="img" aria-label="ANVIXA" style="height:22px"></span></span><span class="topbar-step">Step 1 of 2 — Profile</span></div>
+  <div class="intake-wrap">
+    <h2 class="intake-title">Tell us about your business</h2>
+    <p class="intake-sub">This calibrates your scores against industry and revenue-stage benchmarks and makes every recommendation specific to your context. Fields marked * are required.</p>
+    <div class="req-note">* Required fields — incomplete profiles receive generic, uncalibrated output.</div>
+    <div class="fg"><label class="fl">Your full name <span class="req-mark">*</span></label><input type="text" id="f-name" class="fi" placeholder="e.g. Sam"><div class="err-msg" id="err-name">Please enter your name</div></div>
+    <div class="fg"><label class="fl">Company name <span class="req-mark">*</span></label><input type="text" id="f-co" class="fi" placeholder="e.g. pam"><div class="err-msg" id="err-co">Please enter your company name</div></div>
+    <div class="fg-grid">
+      <div class="fg"><label class="fl">Industry <span class="req-mark">*</span></label>
+        <select id="f-ind" class="fs">
+          <option value="">Select industry</option>
+          <option value="B2B SaaS / Technology">B2B SaaS / Technology — software, IT services, tech platforms</option>
+          <option value="D2C / E-commerce">D2C / E-commerce — online-first consumer brands</option>
+          <option value="Retail / Consumer Goods">Retail / Consumer Goods — stores, FMCG, offline retail</option>
+          <option value="Financial Services / Fintech">Financial Services / Fintech — banks, NBFCs, insurance</option>
+          <option value="Healthcare / Wellness">Healthcare / Wellness — clinics, hospitals, wellness brands</option>
+          <option value="Education / EdTech">Education / EdTech — schools, coaching, edtech platforms</option>
+          <option value="Real Estate / Construction">Real Estate / Construction — developers, brokers, infra</option>
+          <option value="Manufacturing / Industrial">Manufacturing / Industrial — B2B manufacturing, industrial goods</option>
+          <option value="Professional Services">Professional Services — agencies, consulting, legal, accounting</option>
+          <option value="Media / Entertainment">Media / Entertainment — studios, publishers, OTT, entertainment brands</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="err-msg" id="err-ind">Please select your industry</div>
+      </div>
+      <div class="fg"><label class="fl">Annual revenue <span class="req-mark">*</span></label>
+        <select id="f-rev" class="fs">
+          <option value="">Select band</option>
+          <option>Under &#8377;1 Cr</option><option>&#8377;1&#8211;5 Cr</option>
+          <option>&#8377;5&#8211;25 Cr</option><option>&#8377;25&#8211;100 Cr</option><option>&#8377;100 Cr+</option>
+        </select><div class="err-msg" id="err-rev">Please select your revenue band</div>
+      </div>
+    </div>
+    <div class="fg-grid">
+      <div class="fg"><label class="fl">Team size</label>
+        <select id="f-team" class="fs">
+          <option value="">Select size</option>
+          <option>1&#8211;10 (Startup)</option><option>11&#8211;50 (Early growth)</option>
+          <option>51&#8211;200 (Scale-up)</option><option>201&#8211;500 (Mid-market)</option><option>500+ (Enterprise)</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Your role</label>
+        <select id="f-role" class="fs">
+          <option value="">Select role</option>
+          <option>Founder / Co-founder</option><option>CEO / MD</option>
+          <option>CMO / Marketing Head</option><option>COO / Business Head</option>
+          <option>CXO / Director</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-go" onclick="goQuiz()">Continue to Assessment &rarr;</button>
+  </div>
+</section>
+
+<!-- ══ QUIZ ══ -->
+<section id="quiz" class="screen">
+  <div class="qtop">
+    <div class="qtop-inner">
+      <span class="qtop-logo"><span class="logo" role="img" aria-label="ANVIXA" style="height:20px"></span></span>
+      <div class="qtop-meta">
+        <span class="qtop-prog-txt" id="sec-prog-txt">0 of 5 sections complete</span>
+        <span class="sec-pips" id="sec-pips"></span>
+        <span class="qtop-prog-txt" id="prog-txt">Question 1 of 50</span>
+      </div>
+    </div>
+    <div class="prog-wrap"><div class="prog-bar" id="prog-bar" style="width:2%"></div></div>
+  </div>
+  <div class="sec-bar">
+    <span><span class="sec-dot"></span><span class="sec-txt" id="sec-name">Strategy &amp; Positioning</span></span>
+    <span class="sec-hint" id="multi-hint">Select all that apply</span>
+  </div>
+  <div class="qbody">
+    <div id="qcontainer"></div>
+    <div class="qnav">
+      <button class="btn-nav" id="btn-prev" onclick="nav(-1)" disabled>&larr; Previous</button>
+      <span class="nav-hint" id="nav-hint"></span>
+      <button class="btn-nav btn-next" id="btn-next" onclick="nav(1)">Next &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESULTS ══ -->
+<section id="results" class="screen">
+  <div class="r-hero">
+    <div style="margin-bottom:1rem"><span class="logo" role="img" aria-label="ANVIXA" style="height:34px"></span></div>
+    <div class="r-hero-eyebrow">ANVIXA · Marketing Maturity Report</div>
+    <h1 class="r-name" id="r-name">&mdash;</h1>
+    <p class="r-meta" id="r-meta">&mdash;</p>
+    <p class="r-date" id="r-date"></p>
+    <div class="ring-wrap">
+      <svg class="ring-svg" viewBox="0 0 160 160" role="img" aria-label="Score ring">
+        <circle class="ring-bg" cx="80" cy="80" r="65"/>
+        <circle class="ring-fill" id="ring-fill" cx="80" cy="80" r="65" stroke-dasharray="408.4" stroke-dashoffset="408.4"/>
+      </svg>
+      <div class="ring-inner">
+        <span class="ring-pct" id="r-pct">0%</span>
+        <span class="ring-lbl">Overall</span>
+      </div>
+    </div><br>
+    <span class="band-pill" id="r-band">&mdash;</span>
+    <div class="bench-strip" id="bench-strip" style="margin-top:1.5rem">
+      <div class="bench-item"><span class="bench-n" id="b-your" style="color:var(--gold-lt)">—</span><span class="bench-l">Your score</span></div>
+      <div class="bench-sep"></div>
+      <div class="bench-item"><span class="bench-n" id="b-ind" style="color:rgba(248,245,239,.6)">—</span><span class="bench-l">Stage-adjusted benchmark</span></div>
+      <div class="bench-sep"></div>
+      <div class="bench-item"><span class="bench-n" id="b-gap" style="color:rgba(248,245,239,.6)">—</span><span class="bench-l">Gap to close</span></div>
+    </div>
+  </div>
+
+  <div class="r-body">
+    <div style="margin-bottom:3rem">
+      <h2 class="r-sec-title">Dimension Scorecard vs Industry Benchmark</h2>
+      <div class="cat-grid" id="cat-grid"></div>
+      <div id="radar-wrap" style="margin-top:1.5rem;text-align:center"></div>
+    </div>
+
+    <div id="exec-line" style="border:1.5px solid var(--gold);background:var(--gold-pale);padding:1.1rem 1.25rem;margin-bottom:1.5rem;font-size:14px;color:var(--char);line-height:1.6"></div>
+
+    <div class="narrative" id="narrative-block">
+      <div class="narrative-label">Your maturity narrative</div>
+      <div class="narrative-text" id="narrative-text">&mdash;</div>
+    </div>
+
+    <div style="margin-bottom:3rem">
+      <h2 class="r-sec-title">Strengths &amp; Priority Gaps</h2>
+      <div class="insight-row" id="insight-row"></div>
+    </div>
+
+    <div style="margin-bottom:3rem">
+      <h2 class="r-sec-title">Personalised Action Plan</h2>
+      <div class="sug-list" id="sug-list"></div>
+    </div>
+
+    <div style="margin-bottom:3rem">
+      <h2 class="r-sec-title">90-Day Execution Roadmap</h2>
+      <div class="roadmap-shield">
+        <div class="roadmap" id="roadmap"></div>
+        <div class="roadmap-veil">
+          <div class="roadmap-veil-inner">
+            <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Reserved for your strategy session</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--char);margin-bottom:.4rem">Your detailed 30 · 60 · 90 plan is ready</div>
+            <div style="font-size:13px;color:var(--muted);max-width:440px;margin:0 auto;line-height:1.6">A Twiraa strategist will walk you through the full sequenced roadmap live — tailored to your scores, sector, and stage.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pdf-cta" style="background:var(--ink);color:#f8f5ef;padding:2rem;text-align:center">
+      <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(61,158,137,.9);margin-bottom:.6rem">ANVIXA · IQ + EQ</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:.5rem">Book a 30-minute benchmark review</div>
+      <div style="font-size:13px;color:rgba(248,245,239,.75);line-height:1.7;max-width:520px;margin:0 auto .9rem">Walk through this report with a Twiraa strategist — where the gaps are costing you pipeline, and the fastest 90-day sequence to close them. AI intelligence fused with human emotional depth.</div>
+      <div style="font-size:13px;color:var(--gold-lt,#a9d8c8)">twiraa.com &nbsp;·&nbsp; hello@twiraa.com</div>
+    </div>
+  </div>
+
+  <div class="r-cta">
+    <h3 class="cta-title">Your next move starts here</h3>
+    <p class="cta-body">Your full responses have been recorded for your Twiraa strategist. Retake the assessment any time, or share this report in your next leadership meeting.</p>
+    <div class="cta-btns">
+      <button class="btn-cta" onclick="openShare()">Share Scorecard</button>
+      <button class="btn-cta btn-cta-out" onclick="retake()">Retake Assessment</button>
+    </div>
+  </div>
+  <div class="r-footer">
+    <div style="margin-bottom:.6rem"><span class="logo" role="img" aria-label="ANVIXA" style="height:32px"></span></div>
+    <div style="font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--char);margin-bottom:.3rem">ANVIXA – Powered by Twiraa Creatives Pvt. Ltd.</div>
+    <div>Confidential Assessment &nbsp;&middot;&nbsp; <span id="r-foot-date"></span></div>
+    <div style="margin-top:.5rem;font-size:10px;color:var(--muted);opacity:.8;line-height:1.5;max-width:640px;margin-left:auto;margin-right:auto">Methodology: benchmarks are Twiraa composite estimates by industry, adjusted for revenue stage. Updated quarterly.</div>
+  </div>
+</section>
+
+<!-- Share overlay -->
+<div class="share-overlay" id="share-overlay">
+  <div class="share-card">
+    <button class="share-close" onclick="closeShare()">&times;</button>
+    <h3 class="share-title">Share your scorecard</h3>
+    <p class="share-sub">Share your marketing maturity score with your leadership team, board, or investors.</p>
+    <div class="share-preview">
+      <div class="share-preview-band"><span class="logo" role="img" aria-label="ANVIXA" style="height:16px;filter:brightness(1.4)"></span> &nbsp;Marketing Maturity Report</div>
+      <div class="share-preview-pct" id="share-pct">0%</div>
+      <div class="share-preview-co" id="share-co">&mdash;</div>
+      <div class="share-preview-tag" id="share-band">&mdash;</div>
+    </div>
+    <div class="share-actions">
+      <button class="share-btn" onclick="window.print()">Print</button>
+      <button class="share-btn" onclick="closeShare()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN GATE ══ -->
+<section id="admin-gate" class="screen">
+  <div class="gate-card" style="margin:auto;position:relative;top:0">
+    <div class="gate-logo"><span class="logo" role="img" aria-label="ANVIXA" style="height:26px"></span></div>
+    <p class="gate-sub">ADMIN &nbsp;·&nbsp; Twiraa team access only</p>
+    <input id="gate-pass" type="password" class="fi" placeholder="Enter passcode" onkeydown="if(event.key==='Enter')tryGate()">
+    <div class="err-msg" id="gate-error" style="display:block;min-height:16px"></div>
+    <button class="btn-go" id="gate-submit" style="margin-top:.5rem" onclick="tryGate()">Sign in</button>
+    <p class="gate-note">Sessions stay signed in for 12 hours. Contact your admin if you need the passcode reset.</p>
+    <button class="gate-back" onclick="show('intro')">&larr; Back to assessment</button>
+  </div>
+</section>
+
+<!-- ══ ADMIN DASHBOARD ══ -->
+<section id="admin-dash" class="screen">
+  <div class="admin-topbar">
+    <span class="admin-topbar-logo"><span class="logo" role="img" aria-label="ANVIXA" style="height:18px;filter:brightness(1.3)"></span> &nbsp;Admin Console</span>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <span class="admin-topbar-tag">Twiraa Creatives — internal</span>
+      <button class="btn-nav" style="padding:.5rem 1rem" onclick="show('intro')">Exit to assessment</button>
+      <button class="btn-nav" style="padding:.5rem 1rem" onclick="adminSignOut()">Sign out</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-eyebrow">Client Submissions</div>
+    <h1 class="admin-h1">Every completed assessment, in one place</h1>
+    <div class="stat-row" id="admin-stats"></div>
+    <div class="admin-toolbar">
+      <input id="admin-search" type="text" class="fi" placeholder="Search by name, company, or industry…" oninput="renderClientTable()">
+      <button class="btn-nav" onclick="refreshClients()">&#8635; Refresh</button>
+      <button class="btn-nav btn-next" onclick="seedSamples()" id="seed-btn">+ Load Sample Clients</button>
+      <button class="btn-nav" onclick="clearAllClients()">Clear All</button>
+    </div>
+    <div id="seed-msg" style="font-size:11.5px;color:var(--muted);margin-bottom:1rem"></div>
+    <div id="admin-table-wrap"></div>
+  </div>
+</section>
+
+<!-- ══ ADMIN CLIENT DETAIL ══ -->
+<section id="admin-detail" class="screen">
+  <div class="admin-topbar">
+    <span class="admin-topbar-logo"><span class="logo" role="img" aria-label="ANVIXA" style="height:18px;filter:brightness(1.3)"></span> &nbsp;Admin Console</span>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <span class="admin-topbar-tag">Twiraa Creatives — internal</span>
+      <button class="btn-nav" style="padding:.5rem 1rem" onclick="show('admin-dash')">&larr; All clients</button>
+      <button class="btn-nav" style="padding:.5rem 1rem" onclick="adminSignOut()">Sign out</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="detail-head">
+      <div>
+        <h1 id="d-name">&mdash;</h1>
+        <div class="detail-meta" id="d-meta">&mdash;</div>
+      </div>
+      <div class="detail-actions" style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <button class="btn-nav" onclick="downloadAnswersCSV()">&darr; Download Answers (CSV)</button>
+        <button class="btn-nav btn-next" onclick="downloadFullReport()">&darr; Download Full Report</button>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <h2 class="r-sec-title" style="font-size:1.15rem">Dimension Scorecard</h2>
+        <div class="cat-grid" id="d-cat-grid"></div>
+        <div id="d-qa"></div>
+      </div>
+      <div>
+        <div class="side-stat"><div class="l">Overall Maturity</div><div class="v" id="d-overall" style="color:var(--red)">—</div></div>
+        <div class="side-stat"><div class="l">Stage-Adjusted Benchmark</div><div class="v" id="d-bench">—</div></div>
+        <div class="side-stat"><div class="l">Submitted</div><div style="font-size:14px;font-weight:600;margin-top:.3rem;color:var(--ink)" id="d-date">—</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ══════════════════ DATA ══════════════════ */
+const Q = [{"sec":"Strategy & Positioning","multi":true,"q":"What is your <b>primary business goal</b> for the next 3 years?","sub":"Select all goals that genuinely apply to your 3-year horizon.","o":["<b>Increase revenue</b> and profitability","<b>Expand</b> into new markets or geographies","<b>Strengthen brand</b> reputation and customer loyalty","<b>Innovate</b> and launch new products or services"],"w":[4,3,3,4]},{"sec":"Strategy & Positioning","single":true,"q":"How do you perceive your brand's <b>current position</b> in the market?","sub":"Select all descriptions that honestly reflect your current market position.","o":["<b>Market leader</b> with strong brand recognition","<b>Growing player</b> with moderate recognition","<b>New entrant</b> still building credibility","<b>Established but struggling</b> against competitors"],"w":[4,3,2,1]},{"sec":"Strategy & Positioning","multi":true,"q":"Which <b>competition strategies</b> does your business actively use?","sub":"Select all approaches that genuinely reflect how you compete.","o":["<b>Cost leadership</b> — offering the best price in the market","<b>Differentiation</b> — unique product or service features","<b>Niche specialisation</b> — serving a very specific market segment","<b>Hybrid approach</b> — combining cost, differentiation, and service"],"w":[3,4,4,4]},{"sec":"Strategy & Positioning","multi":true,"q":"What are your <b>primary market differentiators</b>?","sub":"Select all that genuinely set you apart from your closest competitors.","o":["<b>Price</b> — best value for money in the market","<b>Quality</b> — premium, high-end products or services","<b>Innovation</b> — cutting-edge technology or unique features","<b>Customer service</b> — exceptional, memorable user experience"],"w":[3,4,4,4]},{"sec":"Strategy & Positioning","multi":true,"q":"Which <b>business models</b> describe how your company operates?","sub":"Select all that apply — many businesses span multiple models.","o":["<b>Direct-to-consumer (DTC)</b> — selling directly to end buyers","<b>Business-to-business (B2B)</b> — selling to companies or enterprises","<b>Subscription</b> or recurring revenue model","<b>Retail or brick-and-mortar</b> physical presence"],"w":[4,4,4,3]},{"sec":"Strategy & Positioning","multi":true,"q":"What is your company's <b>long-term vision</b>?","sub":"Select all visions that resonate with your long-term direction.","o":["Become a <b>global industry leader</b>","<b>Dominate a specific niche</b> market completely","<b>Sustain steady growth</b> with consistent, predictable revenue","<b>Innovate and disrupt</b> traditional market conventions"],"w":[4,4,3,4]},{"sec":"Strategy & Positioning","multi":true,"q":"What have been your <b>biggest marketing challenges</b> so far?","sub":"Select all challenges that have meaningfully limited your growth.","o":["<b>Low customer engagement</b> and retention rates","<b>Ineffective messaging</b> or unclear brand positioning","<b>Poor ROI</b> from marketing campaigns","<b>Difficulty differentiating</b> from competitors"],"w":[2,2,2,2]},{"sec":"Strategy & Positioning","multi":true,"q":"What do you most want to <b>change or improve</b> in your marketing strategy?","sub":"Select all improvement areas you want to address in the next 12 months.","o":["<b>Refine brand messaging</b> and positioning clarity","<b>Allocate marketing budget</b> more effectively","<b>Improve digital presence</b> and online engagement","<b>Experiment with new</b> marketing channels and tactics"],"w":[3,4,3,3]},{"sec":"Strategy & Positioning","single":true,"q":"What is your <b>annual marketing budget</b> as a percentage of revenue?","sub":"Select the band that best reflects your annual marketing spend.","o":["<b>Less than 5%</b> of annual revenue","<b>5–10%</b> of annual revenue","<b>11–20%</b> of annual revenue","<b>More than 20%</b> of annual revenue"],"w":[1,3,4,4]},{"sec":"Strategy & Positioning","single":true,"q":"How strong is <b>alignment between sales and marketing</b> in your organisation?","sub":"Select all statements that describe the current state of your sales and marketing teams.","o":["<b>Tightly aligned</b> — shared KPIs, joint reviews, unified pipeline view","<b>Generally aligned</b> — same goals but gaps in execution","<b>Siloed</b> — teams operate independently with minimal collaboration","<b>No meaningful alignment</b> — sales and marketing work separately"],"w":[4,3,2,1]},{"sec":"Brand & Identity","multi":true,"q":"Who are your <b>primary target audiences</b>?","sub":"Select all customer segments you actively market to.","o":["<b>Mass market</b> — broad, general consumer base","<b>Niche market</b> — specific, well-defined customer segment","<b>High-end consumers</b> seeking exclusivity or premium quality","<b>Business clients</b> — enterprises or B2B decision-makers"],"w":[3,4,4,4]},{"sec":"Brand & Identity","multi":true,"q":"What <b>age groups</b> make up your primary buyer audience?","sub":"Select all that represent a significant portion of your customers.","o":["<b>Gen Z</b> — aged 18 to 25","<b>Millennials</b> — aged 26 to 40","<b>Gen X</b> — aged 41 to 55","<b>Baby Boomers</b> — aged 56 and above"],"w":[3,4,3,3]},{"sec":"Brand & Identity","multi":true,"q":"What are the <b>core problems</b> your audience faces that you solve?","sub":"Select all genuine pain points your product or service addresses.","o":["<b>Cost</b> — they need affordable, value-for-money solutions","<b>Convenience</b> — they want ease, speed, and frictionless experience","<b>Quality</b> — they demand premium, high-end outcomes","<b>Trust</b> — they need a credible, reliable, and established brand"],"w":[3,4,4,4]},{"sec":"Brand & Identity","multi":true,"q":"How do you want your <b>brand to be perceived</b>?","sub":"Select all perceptions you are actively building in the market.","o":["<b>Affordable and accessible</b> — the go-to value option","<b>Premium and exclusive</b> — aspirational and high-end","<b>Innovative and cutting-edge</b> — ahead of the curve","<b>Trustworthy and customer-centric</b> — reliable and caring"],"w":[3,4,4,4]},{"sec":"Brand & Identity","multi":true,"q":"Which <b>brand personality traits</b> best describe your brand voice?","sub":"Select all traits that genuinely reflect how your brand communicates.","o":["<b>Bold and disruptive</b> — challenges conventions","<b>Trustworthy and authoritative</b> — expert and dependable","<b>Playful and engaging</b> — fun, relatable, energetic","<b>Luxurious and exclusive</b> — refined and aspirational"],"w":[4,4,3,4]},{"sec":"Brand & Identity","single":true,"q":"What is your brand's <b>dominant communication style</b>?","sub":"Select all communication styles that your brand actively uses.","o":["<b>Professional and informative</b> — clear, expert, authoritative","<b>Friendly and casual</b> — warm, approachable, conversational","<b>Witty and humorous</b> — clever, entertaining, memorable","<b>Inspirational and motivational</b> — emotionally driven, aspirational"],"w":[4,3,3,4]},{"sec":"Brand & Identity","single":true,"q":"How <b>consistent is your brand's visual identity</b> across platforms?","sub":"Select all statements that honestly reflect your brand's visual consistency.","o":["<b>Very consistent</b> — strict brand guidelines enforced across all touchpoints","<b>Mostly consistent</b> — minor variations but core identity intact","<b>Somewhat inconsistent</b> — different approaches on different channels","<b>Not consistent</b> — major visual differences across platforms"],"w":[4,3,2,1]},{"sec":"Brand & Identity","multi":true,"q":"What <b>brand narratives</b> do you actively use in your marketing?","sub":"Select all storytelling angles you consistently deploy.","o":["<b>Founder's journey</b> — the origin story and personal vision","<b>Customer success stories</b> — real outcomes and social proof","<b>Industry disruption</b> — innovation and market transformation","<b>Social impact</b> and ethical or community values"],"w":[4,4,4,4]},{"sec":"Brand & Identity","multi":true,"q":"What <b>emotions</b> do you intentionally want your brand to evoke?","sub":"Select all emotional responses you design your brand experience to create.","o":["<b>Trust and security</b> — confidence and reassurance","<b>Excitement and innovation</b> — energy and curiosity","<b>Happiness and positivity</b> — joy and warmth","<b>Exclusivity and luxury</b> — prestige and desire"],"w":[4,4,3,4]},{"sec":"Brand & Identity","multi":true,"q":"What <b>factors most drive</b> your customers' purchase decisions?","sub":"Select all factors that genuinely move your audience to buy.","o":["<b>Brand reputation and trust</b> — they buy because they believe in you","<b>Price and affordability</b> — cost is a primary decision factor","<b>Product uniqueness and features</b> — your offering stands out","<b>Peer recommendations and reviews</b> — social proof drives action"],"w":[4,3,4,3]},{"sec":"Channels & Content","multi":true,"q":"Where have you <b>primarily focused</b> your marketing efforts to date?","sub":"Select all channels you have meaningfully invested time or budget in.","o":["<b>Digital advertising</b> and social media marketing","<b>Traditional marketing</b> — TV, print, radio, or outdoor","<b>PR and influencer</b> marketing","<b>Events, partnerships</b>, and networking"],"w":[4,2,3,3]},{"sec":"Channels & Content","multi":true,"q":"Which <b>marketing channels</b> do you plan to prioritise going forward?","sub":"Select all channels you intend to increase investment in over the next 12 months.","o":["<b>Social media</b> and influencer marketing","<b>Content marketing</b> and SEO","<b>Paid advertising</b> — Google Ads and social paid campaigns","<b>Offline marketing</b> and brand activations"],"w":[4,4,4,3]},{"sec":"Channels & Content","multi":true,"q":"Which <b>social media platforms</b> are you actively using or targeting?","sub":"Select all platforms where you have a meaningful presence or planned investment.","o":["<b>Instagram and TikTok</b> — visual content and short-form video","<b>LinkedIn</b> — B2B marketing and professional networking","<b>YouTube</b> — long-form educational or entertainment content","<b>Twitter / X and Threads</b> — real-time conversations and updates"],"w":[4,4,4,3]},{"sec":"Channels & Content","multi":true,"q":"What <b>content formats</b> do you actively produce and distribute?","sub":"Select all content types you consistently publish.","o":["<b>Blog posts and SEO articles</b> — long-form written content","<b>Video content</b> — short-form reels, explainers, or live streams","<b>Podcasts and audio</b> content","<b>Infographics and visual storytelling</b>"],"w":[4,4,3,4]},{"sec":"Channels & Content","multi":true,"q":"What <b>advertising formats have been most effective</b> for your business?","sub":"Select all ad types that have delivered measurable results.","o":["<b>Social media ads</b> — Facebook, Instagram, or TikTok","<b>Search engine marketing</b> — Google Ads or Bing","<b>Traditional media</b> — TV, radio, or print","<b>Influencer and affiliate</b> marketing"],"w":[4,4,2,4]},{"sec":"Channels & Content","multi":true,"q":"What are your <b>primary goals</b> for marketing and branding?","sub":"Select all objectives your marketing is currently accountable for.","o":["<b>Increase brand awareness</b> and market reach","<b>Drive sales</b> and improve conversion rates","<b>Build long-term brand loyalty</b> and community","<b>Establish thought leadership</b> in the industry"],"w":[4,4,4,4]},{"sec":"Channels & Content","multi":true,"q":"How do you approach <b>influencer marketing</b>?","sub":"Select all approaches you currently use or plan to activate.","o":["<b>Macro-influencers</b> — industry leaders or celebrities","<b>Micro-influencers</b> — niche creators with high engagement rates","<b>Brand ambassador programmes</b> — long-term advocacy relationships","<b>Not yet explored</b> influencer marketing"],"w":[4,4,4,1]},{"sec":"Channels & Content","multi":true,"q":"How do you <b>encourage user-generated content (UGC)</b>?","sub":"Select all UGC tactics you actively run.","o":["<b>Contests and hashtag campaigns</b>","<b>Incentives</b> — discounts, shoutouts, or exclusive access","<b>Micro-influencer collaborations</b> to seed authentic content","<b>No UGC strategy</b> currently in place"],"w":[4,4,3,1]},{"sec":"Channels & Content","multi":true,"q":"How do you handle <b>content distribution</b>?","sub":"Select all distribution approaches you currently use.","o":["<b>Owned, earned, and paid</b> — a fully integrated distribution model","<b>Mostly owned channels</b> — website, email, and social organic","<b>Rely primarily on paid amplification</b> to extend reach","<b>No formal distribution strategy</b>"],"w":[4,3,2,1]},{"sec":"Channels & Content","single":true,"q":"How proactive are you with <b>industry thought leadership</b>?","sub":"Select all thought leadership activities you are currently doing.","o":["<b>Publish frequently</b> and speak at industry events regularly","<b>Occasional thought pieces</b> — a few articles or talks per year","<b>Reactive commentary only</b> — respond when asked","<b>Not involved</b> in thought leadership"],"w":[4,3,2,1]},{"sec":"Channels & Content","multi":true,"q":"How do you use <b>WhatsApp or direct messaging</b> for customer engagement?","sub":"Select all messaging strategies currently active in your business.","o":["<b>Customer support</b> — resolving queries and service issues","<b>Broadcast promotions</b> — offers, updates, and announcements","<b>Automated chatbot-driven</b> sales and lead qualification","<b>Not yet implemented</b> messaging marketing"],"w":[3,4,4,1]},{"sec":"Channels & Content","multi":true,"q":"How are you <b>using AI</b> in your marketing today?","sub":"Select all AI applications that are live in your marketing operation.","o":["<b>Chatbots, automation</b>, and personalised email workflows","<b>AI-generated content</b> and copywriting assistance","<b>Predictive analytics</b> for customer targeting and insights","<b>Not using AI</b> in marketing yet"],"w":[4,4,4,1]},{"sec":"Customer & Retention","multi":true,"q":"What are your <b>highest marketing priorities</b> this quarter?","sub":"Select all priorities actively on your agenda right now.","o":["<b>Driving more leads</b> and improving conversion rates","<b>Increasing brand awareness</b> and market visibility","<b>Building a strong customer community</b>","<b>Enhancing customer retention</b> and lifetime value"],"w":[4,3,4,4]},{"sec":"Customer & Retention","multi":true,"q":"How do you <b>engage with customers</b> post-purchase?","sub":"Select all channels you use to maintain ongoing customer relationships.","o":["<b>Social media</b> — direct messages and comment engagement","<b>Email marketing</b> and newsletters","<b>Dedicated customer support</b> teams or ticketing","<b>Webinars, workshops</b>, or community events"],"w":[4,4,3,4]},{"sec":"Customer & Retention","multi":true,"q":"What are your <b>primary customer retention strategies</b>?","sub":"Select all retention tactics you have deliberately implemented.","o":["<b>Loyalty programmes</b> and exclusive member rewards","<b>Consistent product or service improvement</b> driven by feedback","<b>Exceptional customer support</b> — fast, empathetic, proactive","<b>Personalisation</b> — targeted offers, content, and communication"],"w":[4,4,4,4]},{"sec":"Customer & Retention","multi":true,"q":"How do you <b>reward repeat customers</b>?","sub":"Select all active loyalty or reward mechanisms.","o":["<b>Points-based loyalty programmes</b>","<b>Exclusive discounts</b> for long-term customers","<b>Personalised gifts</b> and surprise-and-delight moments","<b>No loyalty programme</b> currently in place"],"w":[4,3,4,1]},{"sec":"Customer & Retention","multi":true,"q":"What are the <b>main reasons customers stop</b> using your product or service?","sub":"Select all churn reasons you have observed or heard from customers.","o":["<b>High prices</b> or better alternatives from competitors","<b>Poor customer service</b> or support experience","<b>Lack of new features</b> or product updates","<b>Insufficient engagement</b> or communication from your brand"],"w":[2,2,2,2]},{"sec":"Customer & Retention","multi":true,"q":"How do you <b>collect customer feedback</b>?","sub":"Select all feedback mechanisms you actively and consistently use.","o":["<b>Surveys and NPS</b> — structured, quantitative feedback","<b>Social listening</b> and comment monitoring","<b>Customer interviews</b> and focus groups","<b>We don't systematically</b> collect customer feedback"],"w":[4,3,4,1]},{"sec":"Customer & Retention","multi":true,"q":"How do you approach <b>customer win-back</b>?","sub":"Select all win-back strategies you have deployed.","o":["<b>Targeted win-back campaigns</b> — personalised re-engagement sequences","<b>Discount-driven re-engagement</b> — special offers for lapsed customers","<b>Personal outreach</b> — direct calls or messages from the team","<b>No win-back programme</b> currently in place"],"w":[4,3,3,1]},{"sec":"Customer & Retention","multi":true,"q":"How do you <b>handle negative reviews</b>?","sub":"Select all approaches that reflect your actual practice.","o":["<b>Address professionally</b> and resolve issues publicly","<b>Ignore</b> and focus exclusively on positive feedback","<b>Offer refunds or compensation</b> to resolve complaints","<b>Use as learning opportunities</b> to improve products and processes"],"w":[4,1,3,4]},{"sec":"Customer & Retention","multi":true,"q":"What are your <b>primary lead generation strategies</b>?","sub":"Select all channels currently generating qualified leads.","o":["<b>Organic traffic</b> — SEO, content marketing, and inbound","<b>Paid advertising</b> — PPC, Google Ads, or social paid","<b>Referrals and partnerships</b>","<b>Webinars, events</b>, or gated content"],"w":[4,3,4,4]},{"sec":"Customer & Retention","multi":true,"q":"What are the <b>biggest barriers in your sales funnel</b>?","sub":"Select all friction points actively costing you conversions.","o":["<b>Low website traffic</b> — not enough people reaching the funnel","<b>High bounce rates</b> — visitors leave without engaging","<b>Poor lead nurturing</b> — leads go cold before converting","<b>Weak call-to-action</b> and unclear value proposition"],"w":[2,2,2,2]},{"sec":"Customer & Retention","single":true,"q":"How <b>personalised</b> is your marketing approach today?","sub":"Select all statements that reflect your current personalisation capability.","o":["<b>Fully data-driven</b> — content and offers tailored per customer segment","<b>Partial personalisation</b> — some segmentation exists but much room to improve","<b>Mass messaging</b> — broadcast communication with little to no customisation","<b>No personalisation</b> currently in place"],"w":[4,3,2,1]},{"sec":"Customer & Retention","single":true,"q":"How prepared is your brand for a <b>PR or reputational crisis</b>?","sub":"Select all options that describe your current crisis preparedness.","o":["<b>Crisis communication plan</b> in place, documented, and tested","<b>Reactive</b> — we handle situations as they arise","<b>PR agency</b> manages our crisis response","<b>No preparation</b> or crisis plan in place"],"w":[4,2,3,1]},{"sec":"Operations & Growth","multi":true,"q":"How do you <b>measure marketing campaign success</b>?","sub":"Select all metrics you actively track and report on.","o":["<b>Sales and revenue</b> directly attributable to campaigns","<b>Customer engagement</b> — open rates, clicks, time on site","<b>Brand awareness and reach</b> — impressions and share of voice","<b>Lead generation</b> and conversion rates"],"w":[4,3,3,4]},{"sec":"Operations & Growth","single":true,"q":"How frequently do you <b>analyse marketing data</b>?","sub":"Select all that apply to how frequently you review marketing data.","o":["<b>Weekly</b> performance reports and reviews","<b>Monthly</b> deep-dive analysis","<b>Quarterly</b> marketing audits","<b>Rarely</b> — no regular analytics rhythm in place"],"w":[4,4,3,1]},{"sec":"Operations & Growth","single":true,"q":"What level of <b>marketing automation</b> do you use?","sub":"Select all automation levels that currently apply to your marketing operations.","o":["<b>Fully automated</b> — lead nurture, onboarding, and re-engagement all running","<b>Partial automation</b> — key email or CRM sequences are active","<b>Limited automation</b> — one or two tools, largely manual","<b>No automation</b> — all marketing activity is manual"],"w":[4,3,2,1]},{"sec":"Operations & Growth","multi":true,"q":"What <b>business expansion paths</b> are you actively pursuing?","sub":"Select all growth directions you have a plan or budget behind.","o":["<b>New geographic markets</b> — city, state, or country expansion","<b>Expanding product or service lines</b>","<b>Strategic partnerships</b> and collaborations","<b>Growing digital presence</b> and e-commerce capabilities"],"w":[4,4,4,4]},{"sec":"Operations & Growth","single":true,"q":"What is the size of your <b>in-house marketing team</b>?","sub":"Select the option that best describes your marketing team setup.","o":["<b>Solo founder</b> or no dedicated marketing person","<b>1–3 person</b> marketing team","<b>4–10 person</b> marketing team","<b>10+ person team</b> or fully outsourced to an agency"],"w":[1,2,4,4]},{"sec":"Operations & Growth","multi":true,"q":"How do you <b>plan for seasonal marketing cycles</b>?","sub":"Select all options that reflect your seasonal marketing planning approach.","o":["<b>Well-defined seasonal calendar</b> planned and resourced 90+ days in advance","<b>Reactive seasonal plans</b> — we respond as seasons approach","<b>Limited or ad-hoc</b> seasonal activity","<b>No seasonal planning</b> in place"],"w":[4,3,2,1]}];
+const BENCHMARKS = {"B2B SaaS / Technology":{"Strategy & Positioning":71,"Brand & Identity":65,"Channels & Content":68,"Customer & Retention":63,"Operations & Growth":69,"overall":67},"D2C / E-commerce":{"Strategy & Positioning":66,"Brand & Identity":72,"Channels & Content":74,"Customer & Retention":68,"Operations & Growth":61,"overall":68},"Retail / Consumer Goods":{"Strategy & Positioning":63,"Brand & Identity":70,"Channels & Content":65,"Customer & Retention":66,"Operations & Growth":57,"overall":64},"Financial Services / Fintech":{"Strategy & Positioning":68,"Brand & Identity":61,"Channels & Content":62,"Customer & Retention":65,"Operations & Growth":70,"overall":65},"Healthcare / Wellness":{"Strategy & Positioning":60,"Brand & Identity":64,"Channels & Content":58,"Customer & Retention":67,"Operations & Growth":55,"overall":61},"Education / EdTech":{"Strategy & Positioning":65,"Brand & Identity":63,"Channels & Content":66,"Customer & Retention":64,"Operations & Growth":59,"overall":63},"Real Estate / Construction":{"Strategy & Positioning":58,"Brand & Identity":59,"Channels & Content":55,"Customer & Retention":57,"Operations & Growth":52,"overall":56},"Manufacturing / Industrial":{"Strategy & Positioning":57,"Brand & Identity":55,"Channels & Content":51,"Customer & Retention":58,"Operations & Growth":60,"overall":56},"Professional Services":{"Strategy & Positioning":64,"Brand & Identity":62,"Channels & Content":60,"Customer & Retention":63,"Operations & Growth":61,"overall":62},"Media / Entertainment":{"Strategy & Positioning":67,"Brand & Identity":74,"Channels & Content":76,"Customer & Retention":65,"Operations & Growth":58,"overall":68},"Other":{"Strategy & Positioning":63,"Brand & Identity":63,"Channels & Content":62,"Customer & Retention":62,"Operations & Growth":60,"overall":62}};
+const SECS=["Strategy & Positioning","Brand & Identity","Channels & Content","Customer & Retention","Operations & Growth"];
+const REV_ADJ={'Under ₹1 Cr':0.80,'₹1–5 Cr':0.90,'₹5–25 Cr':1.00,'₹25–100 Cr':1.05,'₹100 Cr+':1.10};
+// Admin auth is now handled by the real backend (see /api/admin/login) — no client-side passcode.
+const RADAR_LBL={'Strategy & Positioning':'Strategy','Brand & Identity':'Brand','Channels & Content':'Channels','Customer & Retention':'Retention','Operations & Growth':'Operations'};
+
+const ADVICE={
+  "Strategy & Positioning":"Revisit the ICP from scratch: \"We help [specific who] achieve [measurable outcome] unlike [specific alternative].\" Test it verbatim with 5 real customers this month.",
+  "Brand & Identity":"Run a full brand audit across every touchpoint — website, social, email signatures, sales decks, packaging — then a 30-day enforcement sprint to fix every inconsistency found.",
+  "Channels & Content":"Audit the channel mix against where the audience actually spends time, cut the lowest-performing channel, and reallocate its budget to the highest performer before diversifying further.",
+  "Customer & Retention":"Map the full customer journey, find the two highest-volume drop-off points, and build one specific intervention for each before investing further in acquisition.",
+  "Operations & Growth":"Establish a marketing operations rhythm: a weekly 30-minute pulse, a monthly 2-hour deep-dive, and a quarterly half-day strategy review."
+};
+
+/* Full dimension deep-dive content — used by the enhanced report. {{CO}} is replaced with the client's company name. */
+const DIM_CONTENT={
+  "Strategy & Positioning":{
+    measures:"A written 12-month marketing strategy tied to revenue targets; a documented ideal customer profile shared across the team; a fixed quarterly review cadence; a positioning statement tested against at least two direct competitors; a go-to-market plan for new products; competitive share-of-voice tracking; pricing reviewed against positioning; leadership agreement on the single most important growth lever each quarter; and a documented process for declining off-strategy opportunities.",
+    steps:[
+      "Document your ideal customer profile in one page: who they are, what they need, and why {{CO}} specifically wins them.",
+      "Write a 12-month strategy document tied to two or three concrete revenue targets — this does not need to be long to be useful.",
+      "Run a quick competitive positioning check against your two closest direct competitors and note where {{CO}} is genuinely differentiated.",
+      "Institute a fixed quarterly review of the strategy document so it stays a living plan rather than a one-time exercise.",
+      "Agree with your leadership team on the single most important growth lever for the current quarter, and write down what you will deliberately say no to."
+    ]
+  },
+  "Brand & Identity":{
+    measures:"Documented brand guidelines covering logo, colour, and tone of voice; consistency of that voice across at least three channels; a brand story beyond the product description; recency of your visual identity; alignment between customer perception and intended positioning; a single accountable owner for brand consistency; self-serve templates for the team; packaging and product presentation alignment; competitive brand benchmarking; and a documented crisis communication protocol.",
+    steps:[
+      "Write a one-page brand guideline covering logo usage, colour palette, and 3–5 tone-of-voice principles — this does not require a design agency to start.",
+      "Audit your last 10 posts or customer-facing assets against that one-pager and flag inconsistencies to fix going forward, not retroactively.",
+      "Assign a single internal owner accountable for brand consistency, even part-time, so decisions don't default to whoever is posting that day.",
+      "Build 2–3 reusable templates (social post, email header, product image treatment) so the team can stay on-brand without custom design each time.",
+      "Draft a one-page crisis communication protocol: who decides, who speaks, a 2-hour holding statement template, and response-time targets by platform."
+    ]
+  },
+  "Channels & Content":{
+    measures:"Posting cadence and calendar discipline; diversification across paid, organic and owned channels; content pillar strategy versus ad-hoc posting; channel-level ROI/CAC tracking rather than vanity metrics; SEO as an active channel; email/WhatsApp beyond transactional messages; influencer or affiliate activity; and systematic repurposing of content across formats.",
+    steps:[
+      "Audit your current channel mix over the last 90 days: list every channel used, spend or time invested, and any result you can measure, even roughly.",
+      "Identify your single highest-performing channel by that audit and commit next month's budget and content weighted toward it.",
+      "Eliminate or pause your lowest-performing channel rather than spreading effort thinner across all of them.",
+      "Build a 30-day content calendar with fixed weekly slots, even if the volume is modest — consistency outperforms intensity at this stage.",
+      "Pilot one AI content assistant for your primary content format to raise production speed without adding headcount.",
+      "Launch a lightweight UGC mechanism — a branded hashtag and a monthly 'share your story' campaign."
+    ]
+  },
+  "Customer & Retention":{
+    measures:"Whether you measure repeat purchase rate or customer lifetime value; the presence of a loyalty or VIP mechanism; automated post-purchase communication; behavioural segmentation; win-back campaigns for lapsing customers; structured feedback collection (NPS/CSAT); a defined onboarding experience; tracked cost of retention versus acquisition; a referral programme; and a single view of the customer across channels.",
+    steps:[
+      "Start measuring repeat purchase rate and rough CLV this month, even with a simple spreadsheet pulled from order data.",
+      "Identify your top 20% of customers by spend and give that segment a name (VIP, Founders' Circle, or similar).",
+      "Deliver one exclusive benefit per month to that segment — early access, a personal touchpoint, or a behind-the-scenes update.",
+      "Build one automated post-purchase email or WhatsApp flow covering order confirmation, delivery, and a follow-up nudge.",
+      "Segment your audience into three simple clusters — new, active, and lapsing — and send each a distinct message rather than one broadcast blast.",
+      "Re-measure repeat purchase rate and CLV at the 90-day mark to confirm the mechanism is working."
+    ]
+  },
+  "Operations & Growth":{
+    measures:"Marketing automation tools beyond spreadsheets; a documented sales-marketing alignment process with shared KPIs; AI adoption in content, personalisation, or reporting workflows; a recurring performance review cadence; a documented budget with channel-level allocation; a single source-of-truth dashboard; a defined creative briefing and approval process; a dedicated execution owner; structured A/B testing before scaling campaigns; and a documented 90-day roadmap.",
+    steps:[
+      "Schedule a half-day sales-marketing alignment session this month and define three shared KPIs: MQL-to-SQL conversion, cost per acquisition, and 90-day pipeline velocity.",
+      "Commit to a fortnightly joint review of those three KPIs — the review cadence matters more than the KPI list itself.",
+      "Adopt one AI-driven email personalisation workflow inside your existing platform — this can be live within 30 days with no new tools required.",
+      "Build a single dashboard, even a simple one, that leadership checks on the same cadence.",
+      "Commit to a 90-day reset discipline: one dimension improved meaningfully is worth more than five dimensions partially touched."
+    ]
+  }
+};
+const ROADMAP=[
+  {phase:"Days 1–30",title:"Diagnose & Mobilise",items:["Audit your lowest-scoring dimension in full","Assign a dedicated owner + one 30-day target","Run a sales-marketing alignment workshop","Pilot one AI tool: content or personalisation"]},
+  {phase:"Days 31–60",title:"Build & Activate",items:["Launch a structured retention improvement plan","Set a weekly review cadence with an owner","Design a VIP loyalty tier for top customers","Publish first thought-leadership piece"]},
+  {phase:"Days 61–90",title:"Measure & Scale",items:["Full re-assessment across all 5 dimensions","Review roadmap outcomes — what moved, why","Build next quarter's strategy on the delta","Launch a UGC or referral campaign"]},
+];
+
+function adjBench(bm,rev){
+  const f=REV_ADJ[rev]||1;const out={};
+  Object.keys(bm).forEach(k=>{out[k]=Math.min(95,Math.round(bm[k]*f));});
+  return out;
+}
+function getBand(ov){
+  if(ov<30)return 'Critical — Act Now';
+  if(ov<45)return 'Fragile';
+  if(ov<65)return 'Developing';
+  return 'Mature';
+}
+function bandClass(ov){
+  if(ov<30)return 'chip-critical';
+  if(ov<45)return 'chip-fragile';
+  if(ov<65)return 'chip-developing';
+  return 'chip-mature';
+}
+function scoreQ(q,sel){
+  if(!sel||sel.length===0)return 0;
+  if(q.single){
+    const chosen=sel[0];const maxW=Math.max(...q.w);
+    return Math.max(0,Math.min((q.w[chosen]/maxW)*100,100));
+  }
+  const posW=q.w.filter(w=>w>1);
+  const maxPos=posW.length>0?posW.reduce((a,b)=>a+b,0):q.w.reduce((a,b)=>a+b,0);
+  let eff=sel.reduce((acc,i)=>acc+(q.w[i]>1?q.w[i]:0),0);
+  const weakSel=sel.filter(i=>q.w[i]<=1).length;
+  eff-=weakSel*(maxPos*0.12);
+  return Math.max(0,Math.min((eff/maxPos)*100,100));
+}
+function computeScores(answers){
+  const ss={},sc={};
+  SECS.forEach(s=>{ss[s]=0;sc[s]=0;});
+  Q.forEach((q,i)=>{ss[q.sec]+=scoreQ(q,answers[i]||[]);sc[q.sec]++;});
+  const sp={};
+  SECS.forEach(s=>{sp[s]=sc[s]>0?Math.round(ss[s]/sc[s]):0;});
+  const overall=Math.round(SECS.reduce((a,s)=>a+sp[s],0)/SECS.length);
+  return {sp,overall};
+}
+
+/* ══════════════════ SCREEN NAV ══════════════════ */
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function goIntake(){
+  show('intake');
+}
+
+/* ══════════════════ QUIZ STATE ══════════════════ */
+let ANS=Q.map(()=>[]);
+let CUR=0,UD={};
+
+function goQuiz(){
+  const name=document.getElementById('f-name').value.trim();
+  const co=document.getElementById('f-co').value.trim();
+  const ind=document.getElementById('f-ind').value;
+  const rev=document.getElementById('f-rev').value;
+  let ok=true;
+  document.getElementById('err-name').style.display=name?'none':'block';
+  document.getElementById('err-co').style.display=co?'none':'block';
+  document.getElementById('err-ind').style.display=ind?'none':'block';
+  document.getElementById('err-rev').style.display=rev?'none':'block';
+  if(!name||!co||!ind||!rev){return;}
+  UD={
+    name, co,
+    ind: ind,
+    rev,
+    team:document.getElementById('f-team').value,
+    role:document.getElementById('f-role').value
+  };
+  CUR=0;ANS=Q.map(()=>[]);
+  buildSecPips();
+  show('quiz');
+  renderQ();
+}
+function buildSecPips(){
+  const wrap=document.getElementById('sec-pips');
+  wrap.innerHTML=SECS.map((s,i)=>'<span class="sec-pip" data-i="'+i+'"></span>').join('');
+}
+function currentSecIndex(){return SECS.indexOf(Q[CUR].sec);}
+function updateSecPips(){
+  const csi=currentSecIndex();
+  document.querySelectorAll('.sec-pip').forEach((p,i)=>{
+    p.classList.toggle('done', i<csi);
+    p.classList.toggle('current', i===csi);
+  });
+  document.getElementById('sec-prog-txt').textContent=csi+' of 5 sections complete';
+}
+function renderQ(){
+  const q=Q[CUR];
+  document.getElementById('prog-bar').style.width=Math.round(((CUR+1)/Q.length)*100)+'%';
+  document.getElementById('prog-txt').textContent='Question '+(CUR+1)+' of '+Q.length;
+  document.getElementById('sec-name').textContent=q.sec;
+  document.getElementById('multi-hint').textContent=q.single?'Select one':'Select all that apply';
+  updateSecPips();
+
+  const wrap=document.getElementById('qcontainer');
+  const selCount=ANS[CUR].length;
+  let html='<div class="qcard active">';
+  html+='<div class="q-num">'+String(CUR+1).padStart(2,'0')+'</div>';
+  html+='<div class="q-text">'+q.q+'</div>';
+  if(q.sub)html+='<div class="q-sub">'+q.sub+'</div>';
+  html+='<div class="sel-ctr'+(selCount?' has-sel':'')+'"><span class="sel-dot"></span>'+(selCount?selCount+' selected':'No selection yet')+'</div>';
+  html+='<div class="opts-grid">';
+  q.o.forEach((opt,i)=>{
+    const sel=ANS[CUR].includes(i);
+    const ltr=String.fromCharCode(65+i);
+    html+='<button class="opt'+(sel?' sel':'')+'" onclick="toggleOpt('+i+')"><span class="opt-ltr">'+ltr+'</span><span class="opt-box"></span><span class="opt-body">'+opt+'</span></button>';
+  });
+  html+='</div></div>';
+  wrap.innerHTML=html;
+
+  document.getElementById('btn-prev').disabled=(CUR===0);
+  document.getElementById('btn-next').textContent=(CUR===Q.length-1)?'See My Results →':'Next →';
+  document.getElementById('nav-hint').textContent=(selCount===0)?'Select at least one option to continue':'';
+}
+function toggleOpt(i){
+  const q=Q[CUR];
+  if(q.single){ANS[CUR]=[i];}
+  else{
+    const idx=ANS[CUR].indexOf(i);
+    if(idx>-1)ANS[CUR].splice(idx,1);else ANS[CUR].push(i);
+  }
+  renderQ();
+}
+function nav(dir){
+  if(dir>0){
+    if(ANS[CUR].length===0)return;
+    if(CUR<Q.length-1){CUR++;renderQ();}
+    else finishQuiz();
+  } else {
+    if(CUR>0){CUR--;renderQ();}
+  }
+}
+function finishQuiz(){
+  const {sp,overall}=computeScores(ANS);
+  const bm0=BENCHMARKS[UD.ind]||BENCHMARKS["Other"];
+  const bm=adjBench(bm0,UD.rev);
+  const gap=overall-bm.overall;
+  renderResults(sp,overall,bm,gap);
+  saveSubmission(sp,overall,bm);
+  show('results');
+}
+function retake(){
+  CUR=0;ANS=Q.map(()=>[]);UD={};
+  document.getElementById('f-name').value='';
+  document.getElementById('f-co').value='';
+  document.getElementById('f-ind').value='';
+  document.getElementById('f-rev').value='';
+  show('intro');
+}
+
+/* ══════════════════ RESULTS RENDER ══════════════════ */
+function renderResults(sp,overall,bm,gap){
+  const now=new Date();
+  document.getElementById('r-name').textContent=UD.name;
+  document.getElementById('r-meta').textContent=(UD.role||'Leader')+' · '+UD.co+' · '+UD.ind;
+  const ds=now.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('r-date').textContent=ds;
+  document.getElementById('r-foot-date').textContent=ds;
+
+  document.getElementById('r-pct').textContent=overall+'%';
+  document.getElementById('r-band').textContent=getBand(overall);
+  document.getElementById('b-your').textContent=overall+'%';
+  document.getElementById('b-ind').textContent=bm.overall+'%';
+  const gapStr=(gap>=0?'+':'')+gap+'%';
+  document.getElementById('b-gap').textContent=gapStr;
+  document.getElementById('b-gap').style.color=gap>=0?'#a9d8c8':'#e7ab99';
+
+  const ring=document.getElementById('ring-fill');
+  const C=2*Math.PI*65;
+  ring.setAttribute('stroke-dasharray',C.toFixed(1));
+  setTimeout(()=>{ ring.style.strokeDashoffset=(C*(1-overall/100)).toFixed(1); },50);
+
+  document.getElementById('cat-grid').innerHTML=SECS.map(s=>catCard(s,sp[s],bm[s])).join('');
+  document.getElementById('radar-wrap').innerHTML=buildRadar(sp,bm);
+
+  document.getElementById('exec-line').innerHTML='<strong>'+UD.co+'</strong> scores <strong>'+overall+'%</strong> marketing maturity — '+Math.abs(gap)+' points '+(gap>=0?'ahead of':'behind')+' the stage-adjusted '+UD.ind+' benchmark of '+bm.overall+'%.';
+  document.getElementById('narrative-text').textContent=overall<45
+    ? UD.co+' scores '+overall+'% marketing maturity — '+(bm.overall-overall)+' points below the '+UD.ind+' industry average of '+bm.overall+'%. This is a diagnostic that needs urgent attention: multiple marketing systems are either fragile or absent. The good news is that companies at this maturity level consistently see the fastest improvements — because the highest-impact changes are the most foundational ones, and they are within reach this quarter.'
+    : UD.co+' scores '+overall+'% marketing maturity against a '+UD.ind+' industry average of '+bm.overall+'%. The foundations are in place — the next move is sharpening execution on the dimensions still trailing benchmark.';
+
+  const dims=SECS.map(s=>({s,gap:sp[s]-bm[s]})).sort((a,b)=>a.gap-b.gap);
+  const strengths=dims.slice(-3).reverse();
+  const gaps=dims.slice(0,3);
+  document.getElementById('insight-row').innerHTML=
+    '<div class="ins-card"><div class="ins-lbl"><span class="ins-dot dot-g">✓</span>Closest to benchmark</div>'+
+    strengths.map(d=>'<div class="ins-item">'+d.s+' — '+(d.gap>=0?'+':'')+d.gap+' pts vs benchmark</div>').join('')+'</div>'+
+    '<div class="ins-card"><div class="ins-lbl"><span class="ins-dot dot-r">!</span>Dimensions needing attention</div>'+
+    gaps.map(d=>'<div class="ins-item">'+d.s+' — '+d.gap+' pts below benchmark</div>').join('')+'</div>';
+
+  const weak=dims[0].s;
+  document.getElementById('sug-list').innerHTML=
+    sugCard('h','Your lowest-scoring dimension needs urgent structural attention: '+weak+' ('+sp[weak]+'%)', ADVICE[weak], 'High Priority')+
+    sugCard('m','Fix sales &amp; marketing alignment', 'Schedule a half-day alignment session this month; define 3 shared KPIs (MQL-to-SQL conversion, cost per acquisition, 90-day pipeline velocity); commit to a fortnightly joint review.', 'Medium Priority')+
+    sugCard('s','Begin a structured 90-day reset', 'Do not try to fix everything at once. Pick your single most critical gap, assign a dedicated owner with weekly accountability, and define one measurable target.', 'Strategic Priority');
+
+  document.getElementById('roadmap').innerHTML=ROADMAP.map(r=>
+    '<div class="roadmap-card"><div class="roadmap-phase">'+r.phase+' — '+r.title+'</div><ul class="roadmap-items">'+
+    r.items.map(i=>'<li><span class="ri-dot"></span>'+i+'</li>').join('')+'</ul></div>').join('');
+
+  document.getElementById('share-pct').textContent=overall+'%';
+  document.getElementById('share-co').textContent=UD.co;
+  document.getElementById('share-band').textContent=getBand(overall);
+
+  window._sp=sp;window._ov=overall;window._bm=bm;
+}
+function catCard(s,val,bench){
+  const diff=val-bench;
+  const tag=diff>=0?'<span class="tag tag-s">At/above benchmark</span>':(diff>-20?'<span class="tag tag-o">Below benchmark</span>':'<span class="tag tag-g">Needs focus</span>');
+  const barColor=diff>=0?'var(--green)':(diff>-20?'var(--warm)':'var(--red)');
+  return '<div class="cat-card"><div class="cat-head"><div class="cat-name">'+s+'</div><div class="cat-scores"><span class="cat-pct" style="color:'+barColor+'">'+val+'%</span></div></div>'+
+    '<div class="bar-bg"><div class="bar-my" style="width:'+val+'%;background:'+barColor+'"></div></div>'+
+    '<div class="bench-label">Benchmark: '+bench+'%</div>'+tag+'</div>';
+}
+function sugCard(pri,title,body,label){
+  const cls=pri==='h'?'ph':(pri==='m'?'pm':'ps');
+  const prilbl=pri==='h'?'pri-h':(pri==='m'?'pri-m':'pri-s');
+  return '<div class="sug-card '+cls+'"><div class="sug-n">'+({h:'!',m:'—',s:'*'}[pri])+'</div><div><div class="sug-title">'+title+'</div><div class="sug-body">'+body+'</div><span class="sug-pri '+prilbl+'">'+label+'</span></div></div>';
+}
+function buildRadar(sp,bm){
+  const cx=230,cy=190,R=135,n=SECS.length;
+  const pt=(v,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;const r=R*v/100;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];};
+  const poly=vals=>vals.map((v,i)=>pt(v,i).map(x=>x.toFixed(1)).join(',')).join(' ');
+  let g='';
+  [25,50,75,100].forEach(lvl=>{g+='<polygon points="'+poly(SECS.map(()=>lvl))+'" fill="none" stroke="#e4e0d6" stroke-width="1"/>';});
+  SECS.forEach((s,i)=>{
+    const [x,y]=pt(100,i);
+    g+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'" stroke="#e4e0d6" stroke-width="1"/>';
+    const [lx,ly]=pt(120,i);
+    g+='<text x="'+lx.toFixed(1)+'" y="'+(ly+4).toFixed(1)+'" text-anchor="middle" font-size="12" fill="#5a564c" font-family="DM Sans,sans-serif">'+(RADAR_LBL[s]||s)+'</text>';
+    const [vx,vy]=pt(Math.max(sp[s],10)+9,i);
+    g+='<text x="'+vx.toFixed(1)+'" y="'+(vy+4).toFixed(1)+'" text-anchor="middle" font-size="10" font-weight="600" fill="#b6543f" font-family="DM Sans,sans-serif">'+sp[s]+'%</text>';
+  });
+  g+='<polygon points="'+poly(SECS.map(s=>bm[s]||60))+'" fill="rgba(61,158,137,.10)" stroke="#3d9e89" stroke-width="1.5" stroke-dasharray="5,4"/>';
+  g+='<polygon points="'+poly(SECS.map(s=>sp[s]))+'" fill="rgba(182,84,63,.14)" stroke="#b6543f" stroke-width="2"/>';
+  return '<svg viewBox="0 0 460 385" style="max-width:460px;width:100%" role="img" aria-label="Radar chart">'+g+
+    '<g font-family="DM Sans,sans-serif" font-size="11">'+
+    '<rect x="118" y="362" width="12" height="12" fill="rgba(182,84,63,.14)" stroke="#b6543f" stroke-width="2"/><text x="136" y="372" fill="#5a564c">Your score</text>'+
+    '<rect x="230" y="362" width="12" height="12" fill="rgba(61,158,137,.10)" stroke="#3d9e89" stroke-width="1.5"/><text x="248" y="372" fill="#5a564c">Stage-adjusted benchmark</text>'+
+    '</g></svg>';
+}
+function openShare(){document.getElementById('share-overlay').classList.add('open');}
+function closeShare(){document.getElementById('share-overlay').classList.remove('open');}
+
+/* ══════════════════ PERSISTENCE — real backend API ══════════════════ */
+function genId(){return 'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+
+/* If you're hosting the frontend and backend on the SAME domain (e.g. both
+   served by the Node app itself, or Netlify proxying /api/* to your backend),
+   leave this as ''. If the frontend is on Netlify and the backend is hosted
+   separately (e.g. Render), put the backend's full URL here instead, e.g.
+   'https://anvixa-api.onrender.com' — no trailing slash. */
+const API_BASE='';
+let ADMIN_TOKEN=localStorage.getItem('anvixa_admin_token')||null;
+
+function authHeaders(){
+  return ADMIN_TOKEN ? {'Authorization':'Bearer '+ADMIN_TOKEN} : {};
+}
+async function apiGet(path){
+  const res=await fetch(API_BASE+path,{headers:authHeaders()});
+  if(res.status===401){adminSignOut(true);throw new Error('Session expired');}
+  if(!res.ok)throw new Error((await res.json().catch(()=>({})) ).error||('Request failed: '+res.status));
+  return res.json();
+}
+async function apiPost(path,body){
+  const res=await fetch(API_BASE+path,{
+    method:'POST',
+    headers:Object.assign({'Content-Type':'application/json'},authHeaders()),
+    body:JSON.stringify(body)
+  });
+  if(res.status===401){adminSignOut(true);throw new Error('Session expired');}
+  if(!res.ok)throw new Error((await res.json().catch(()=>({})) ).error||('Request failed: '+res.status));
+  return res.json();
+}
+async function apiDelete(path){
+  const res=await fetch(API_BASE+path,{method:'DELETE',headers:authHeaders()});
+  if(res.status===401){adminSignOut(true);throw new Error('Session expired');}
+  if(!res.ok)throw new Error((await res.json().catch(()=>({})) ).error||('Request failed: '+res.status));
+  return res.json();
+}
+
+async function saveSubmission(sp,overall,bm){
+  const record={ud:UD, answers:ANS, sp, overall, bm};
+  try{
+    await apiPost('/api/submissions', record);
+  }catch(e){
+    console.error('Could not save submission — is the server running?', e);
+  }
+}
+
+/* ══════════════════ ADMIN ══════════════════ */
+async function tryGate(){
+  const val=document.getElementById('gate-pass').value;
+  const errEl=document.getElementById('gate-error');
+  const btn=document.getElementById('gate-submit');
+  errEl.textContent='';
+  if(btn){btn.disabled=true;btn.textContent='Signing in…';}
+  try{
+    const res=await fetch(API_BASE+'/api/admin/login',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({password:val})
+    });
+    if(!res.ok){
+      const body=await res.json().catch(()=>({}));
+      errEl.textContent=body.error||'Incorrect passcode.';
+      return;
+    }
+    const {token}=await res.json();
+    ADMIN_TOKEN=token;
+    localStorage.setItem('anvixa_admin_token',token);
+    document.getElementById('gate-pass').value='';
+    show('admin-dash');
+    refreshClients();
+  }catch(e){
+    errEl.textContent='Could not reach the server. Is it running?';
+    console.error(e);
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Sign in';}
+  }
+}
+function adminSignOut(silent){
+  ADMIN_TOKEN=null;
+  localStorage.removeItem('anvixa_admin_token');
+  if(!silent)show('intro');
+}
+async function goAdminGate(){
+  // If we already have a token, try it silently before showing the passcode screen.
+  if(ADMIN_TOKEN){
+    try{
+      await apiGet('/api/submissions');
+      show('admin-dash');
+      refreshClients();
+      return;
+    }catch(e){ /* token invalid/expired — fall through to gate */ }
+  }
+  show('admin-gate');
+}
+
+let CLIENT_INDEX=[];
+let AUTO_SEED_DONE=false;
+async function refreshClients(){
+  try{
+    CLIENT_INDEX=await apiGet('/api/submissions');
+  }catch(e){
+    console.error('Could not load submissions', e);
+    CLIENT_INDEX=[];
+  }
+  renderAdminStats();
+  renderClientTable();
+  if(CLIENT_INDEX.length===0 && !AUTO_SEED_DONE){
+    AUTO_SEED_DONE=true;
+    const msg=document.getElementById('seed-msg');
+    if(msg)msg.textContent='No submissions found — loading sample clients so you can explore the console…';
+    await seedSamples();
+  }
+}
+function renderAdminStats(){
+  const n=CLIENT_INDEX.length;
+  const avg=n?Math.round(CLIENT_INDEX.reduce((a,c)=>a+c.overall,0)/n):0;
+  const critical=CLIENT_INDEX.filter(c=>c.overall<30).length;
+  const thisWeek=CLIENT_INDEX.filter(c=>(Date.now()-new Date(c.submittedAt))<7*24*3600*1000).length;
+  document.getElementById('admin-stats').innerHTML=[
+    ['Total Submissions',n],['Average Maturity',avg+'%'],['Critical Band',critical],['This Week',thisWeek]
+  ].map(([l,v])=>'<div class="stat-card"><div class="n">'+v+'</div><div class="l">'+l+'</div></div>').join('');
+}
+function renderClientTable(){
+  const q=(document.getElementById('admin-search').value||'').toLowerCase();
+  const rows=CLIENT_INDEX.filter(c=>!q||(c.name+c.co+c.ind).toLowerCase().includes(q));
+  const wrap=document.getElementById('admin-table-wrap');
+  if(!rows.length){
+    wrap.innerHTML='<div class="empty-state">No submissions yet. Once a client completes the assessment on this page, they will appear here automatically.</div>';
+    return;
+  }
+  let html='<table class="data"><thead><tr><th>Name</th><th>Company</th><th>Industry</th><th>Revenue</th><th>Score</th><th>Submitted</th></tr></thead><tbody>';
+  rows.forEach(c=>{
+    const d=new Date(c.submittedAt).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+    html+='<tr class="rowlink" onclick="openClient(\''+c.id+'\')"><td><strong>'+esc(c.name)+'</strong>'+(c.role?'<br><span style="color:var(--muted);font-size:11px">'+esc(c.role)+'</span>':'')+'</td><td>'+esc(c.co)+'</td><td>'+esc(c.ind)+'</td><td>'+esc(c.rev)+'</td><td><span class="score-chip '+bandClass(c.overall)+'">'+c.overall+'%</span></td><td>'+d+'</td></tr>';
+  });
+  html+='</tbody></table>';
+  wrap.innerHTML=html;
+}
+function esc(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+
+let CURRENT_DETAIL=null;
+async function openClient(id){
+  let rec;
+  try{
+    rec=await apiGet('/api/submissions/'+id);
+  }catch(e){console.error(e);return;}
+  CURRENT_DETAIL=rec;
+  document.getElementById('d-name').textContent=rec.ud.name+' · '+rec.ud.co;
+  document.getElementById('d-meta').textContent=(rec.ud.role||'Leader')+' · '+rec.ud.ind+' · '+rec.ud.rev+(rec.ud.team?' · '+rec.ud.team:'');
+  document.getElementById('d-overall').textContent=rec.overall+'%';
+  document.getElementById('d-bench').textContent=rec.bm.overall+'%';
+  document.getElementById('d-date').textContent=new Date(rec.submittedAt).toLocaleString('en-IN',{dateStyle:'long',timeStyle:'short'});
+  document.getElementById('d-cat-grid').innerHTML=SECS.map(s=>catCard(s,rec.sp[s],rec.bm[s])).join('');
+
+  let qaHtml='';
+  SECS.forEach(sec=>{
+    qaHtml+='<div class="qa-section-title">'+sec+'</div>';
+    Q.forEach((q,i)=>{
+      if(q.sec!==sec)return;
+      const chosen=rec.answers[i]||[];
+      qaHtml+='<div class="qa-item"><div class="qa-q">'+q.q+'</div>';
+      q.o.forEach((opt,oi)=>{
+        const isChosen=chosen.includes(oi);
+        qaHtml+='<div class="qa-opt'+(isChosen?' chosen':'')+'"><span class="mark">'+(isChosen?'✓':'·')+'</span>'+opt+'</div>';
+      });
+      if(!chosen.length)qaHtml+='<div class="qa-opt" style="font-style:italic">No answer selected</div>';
+      qaHtml+='</div>';
+    });
+  });
+  document.getElementById('d-qa').innerHTML=qaHtml;
+  show('admin-detail');
+
+}
+
+/* ══════════════════ REPORT DOWNLOAD (printable HTML) ══════════════════ */
+/* ══════════════════ CSV: raw answers export ══════════════════ */
+function downloadAnswersCSV(){
+  if(!CURRENT_DETAIL)return;
+  const rec=CURRENT_DETAIL;
+  const rows=[['Section','Question #','Question','Selected Option(s)','Selected Weight(s)']];
+  Q.forEach((q,i)=>{
+    const chosen=rec.answers[i]||[];
+    const optText=chosen.map(oi=>q.o[oi].replace(/<\/?b>/g,'')).join(' | ')||'(no answer)';
+    const wText=chosen.map(oi=>q.w[oi]).join(' | ');
+    rows.push([q.sec, i+1, q.q.replace(/<\/?b>/g,''), optText, wText]);
+  });
+  const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='ANVIXA_Answers_'+rec.ud.co.replace(/[^a-z0-9]+/gi,'_')+'.csv';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ══════════════════ Dynamic 10-point action plan ══════════════════ */
+function buildActionItems(rec){
+  const dims=SECS.slice().sort((a,b)=>(rec.sp[a]-rec.bm[a])-(rec.sp[b]-rec.bm[b]));
+  const weak1=dims[0], weak2=dims[1];
+  const co=rec.ud.co, ind=rec.ud.ind;
+  const gap=rec.overall-rec.bm.overall;
+  return [
+    {title:'1. Close the '+Math.abs(gap)+'-point gap — sequence, don\u2019t parallelise', priority:'High',
+     why:'The stage-adjusted benchmark for '+ind+' companies at '+co+'\u2019s revenue stage is '+rec.bm.overall+'%; '+co+' is at '+rec.overall+'%. That gap translates directly into lost pipeline, lower conversion rates, and brand credibility below what competitors are building.',
+     steps:['Rank the five dimensions by point-gap (see the Dimension Scorecard) rather than by comfort or familiarity.',
+       'Address the bottom two dimensions — '+weak1+' and '+weak2+' — first and in sequence, not simultaneously.',
+       'Hold the remaining three dimensions at their current level while focus is on the bottom two.',
+       'Re-score all five dimensions at the 45-day mark to confirm the sequenced approach is producing faster movement than a parallel effort would.'],
+     impact:'Sequential focus on the two lowest dimensions produces roughly twice the improvement speed of spreading effort evenly across all five.'},
+    {title:'2. Fix sales-marketing silos', priority:'High',
+     why:'Siloed or misaligned sales and marketing teams are the single most documented cause of wasted marketing spend in growth-stage companies.',
+     steps:['Schedule a half-day alignment session this month with both functions in the room.','Define exactly three shared KPIs: MQL-to-SQL conversion rate, cost per acquisition, and 90-day pipeline velocity.','Commit to a fortnightly joint review of those three KPIs, with a fixed calendar slot.','Document who owns each KPI and what \u2018on track\u2019 looks like for each.'],
+     impact:'Companies that do this consistently report a 20\u201330% reduction in cost-per-lead within 60 days.'},
+    {title:'3. Adopt AI in marketing immediately', priority:'High',
+     why:co+' has not yet fully implemented AI in marketing operations — meaning the gap compounds every month it stays unaddressed, while AI tools are now standard infrastructure for companies at this stage.',
+     steps:['Select one AI content assistant (ChatGPT, Claude, or Jasper) for your primary content format.','Select one AI-driven email personalisation workflow via Mailchimp, Brevo, or WhatsApp Business API.','Pilot both in parallel — they don\u2019t depend on each other — and target both live within 30 days.','Track content production speed and email engagement before/after as your two success measures.'],
+     impact:'Expected outcome: roughly 40% faster content production, plus higher personalisation and measurably lower cost per acquisition.'},
+    {title:'4. Move from broadcast messaging to data-driven personalisation', priority:'Medium',
+     why:'Mass, one-size-fits-all marketing converts at 10\u201315%. Basic behavioural personalisation consistently delivers 3\u20135x that rate.',
+     steps:['Divide your audience into three clusters: new, active, and lapsing.','Create a distinct message and offer for each cluster.','Deploy inside your existing email platform — no new tools required.','Measure open rate and unsubscribe rate at 90 days against your current broadcast baseline.'],
+     impact:'This single change typically lifts email open rates by 20\u201340% and roughly halves unsubscribe rates within 90 days.'},
+    {title:'5. Build a loyalty programme', priority:'Medium',
+     why:co+' has limited loyalty mechanisms today. Retaining a customer costs roughly a fifth of acquiring a new one, so this is disproportionately high-leverage relative to its cost.',
+     steps:['Identify your top 20% of customers by spend.','Name the tier (VIP, Founders\u2019 Circle, or similar) so it feels like membership, not a discount code.','Deliver one exclusive benefit per month: early access, a personal touchpoint, or a behind-the-scenes invite.','Measure repeat purchase rate and CLV for this segment at the 90-day mark.'],
+     impact:'Even a simple VIP tier can deliver measurable CLV improvement within one quarter, at near-zero cost to launch.'},
+    {title:'6. Launch a UGC strategy', priority:'Medium',
+     why:'User-generated content delivers roughly 6.9x higher engagement than brand-created content and builds social proof that paid advertising cannot replicate.',
+     steps:['Create a branded hashtag and feature it across packaging, receipts, and emails.','Run a monthly \u2018share your story\u2019 campaign with a small reward for participation.','Build a UGC gallery on your website to showcase submissions.','Repurpose the strongest UGC into paid and organic content across other channels.'],
+     impact:'Within 90 days this typically produces a self-sustaining content engine running in parallel with paid activity.'},
+    {title:'7. Build a crisis communication protocol before you need one', priority:'Medium',
+     why:'Brands without a documented crisis protocol respond 3\u20135x more slowly when an issue surfaces, and every hour of delay multiplies reputational damage.',
+     steps:['Define an escalation tree: who decides, who speaks, who monitors.','Draft a 2-hour holding statement template that can be adapted quickly.','Set platform-specific response SLAs — for example, 60 minutes on social, 4 hours for press.','Store the protocol somewhere every senior leader can access on their phone in under 90 seconds.'],
+     impact:'This takes roughly three hours to build and protects years of accumulated brand equity.'},
+    {title:'8. Build a thought leadership platform', priority:'Medium',
+     why:'In '+ind+', executive-led thought leadership is one of the lowest-cost, highest-trust marketing channels available.',
+     steps:['Commit to one monthly LinkedIn article from a senior leader on a genuine industry conviction — not company news.','Seek one speaking slot per quarter at a relevant industry event.','Repurpose each article into 2\u20133 shorter social posts to extend its reach.','Track inbound enquiries that reference the content as your success measure.'],
+     impact:'A single well-placed article consistently generates more qualified inbound than weeks of paid advertising.'},
+    {title:'9. Fix '+weak1+' — the lowest-scoring dimension', priority:'Strategic',
+     why:'At '+rec.sp[weak1]+'%, this is '+co+'\u2019s most structurally urgent dimension, and most businesses at this stage systematically under-invest in their best lever because the results feel too simple to be strategic.',
+     steps:(DIM_CONTENT[weak1]?DIM_CONTENT[weak1].steps.slice(0,4):[]).map(s=>s.replace(/\{\{CO\}\}/g,co)),
+     impact:'This is the single fastest lever available to close '+co+'\u2019s overall maturity gap, per the Dimension Scorecard.'},
+    {title:'10. Begin with a structured 90-day marketing reset', priority:'Strategic',
+     why:'At '+rec.overall+'% maturity, attempting to fix all five dimensions simultaneously produces fragmented effort and no measurable improvement anywhere.',
+     steps:['Pick the single most critical gap ('+weak1+') as the primary focus.','Assign a dedicated owner with weekly accountability for that dimension.','Define one measurable 30-day target tied to that dimension.','Use the 90-Day Execution Roadmap as the sequencing framework rather than improvising month to month.'],
+     impact:'One dimension improved meaningfully is worth more than five dimensions partially touched.'},
+  ];
+}
+
+/* ══════════════════ Full enhanced report (mirrors the Word deep-dive edition) ══════════════════ */
+function downloadFullReport(){
+  if(!CURRENT_DETAIL)return;
+  const rec=CURRENT_DETAIL;
+  const co=rec.ud.co, name=rec.ud.name, role=rec.ud.role||'Leader', ind=rec.ud.ind, rev=rec.ud.rev;
+  const submitted=new Date(rec.submittedAt);
+  const reassess=new Date(submitted.getTime()+90*86400000);
+  const dateStr=submitted.toLocaleDateString('en-IN',{dateStyle:'long'});
+  const reassessStr=reassess.toLocaleDateString('en-IN',{dateStyle:'long'});
+  const gap=rec.overall-rec.bm.overall;
+  const dimsByUrgency=SECS.slice().sort((a,b)=>(rec.sp[a]-rec.bm[a])-(rec.sp[b]-rec.bm[b]));
+  const band=getBand(rec.overall);
+
+  const scoreRows=SECS.map(s=>{
+    const g=rec.sp[s]-rec.bm[s];
+    return '<tr><td>'+s+'</td><td>'+rec.sp[s]+'%</td><td>'+rec.bm[s]+'%</td><td style="color:#a5432e;font-weight:700">'+(g>=0?'+':'')+g+'</td></tr>';
+  }).join('');
+
+  let dimSections='';
+  dimsByUrgency.forEach((s,idx)=>{
+    const g=rec.sp[s]-rec.bm[s];
+    const c=DIM_CONTENT[s];
+    dimSections+='<h2>'+(idx+1)+'. '+s+' — '+rec.sp[s]+'% ('+Math.abs(g)+' points '+(g>=0?'ahead of':'behind')+' benchmark)</h2>'+
+      '<table class="scoretbl"><tr><td>Your score: <b>'+rec.sp[s]+'%</b></td><td>Benchmark: <b>'+rec.bm[s]+'%</b></td><td>Gap: <b style="color:#a5432e">'+(g>=0?'+':'')+g+'</b></td></tr></table>'+
+      '<p class="lbl">What this dimension measures</p><p>'+(c?c.measures:'')+'</p>'+
+      '<p class="lbl">Step-by-step path to close the gap</p><ol>'+(c?c.steps:[]).map(st=>'<li>'+st.replace(/\{\{CO\}\}/g,co)+'</li>').join('')+'</ol>';
+  });
+
+  const actionItems=buildActionItems(rec);
+  let actionSections='';
+  actionItems.forEach(item=>{
+    const cls=item.priority==='High'?'pri-h':(item.priority==='Medium'?'pri-m':'pri-s');
+    actionSections+='<h2>'+item.title+'</h2><span class="pribadge '+cls+'">'+item.priority+' PRIORITY</span>'+
+      '<p class="lbl">Why this matters</p><p>'+item.why+'</p>'+
+      '<p class="lbl">How to execute</p><ol>'+item.steps.map(st=>'<li>'+st+'</li>').join('')+'</ol>'+
+      '<p class="lbl">Expected impact</p><p class="impact">'+item.impact+'</p>';
+  });
+
+  let roadmapHtml='';
+  ROADMAP.forEach(r=>{
+    roadmapHtml+='<div class="rmcard"><div class="rmphase">'+r.phase+' — '+r.title+'</div><ul>'+r.items.map(i=>'<li>'+i+'</li>').join('')+'</ul></div>';
+  });
+
+  const lowTwo=dimsByUrgency.slice(0,2).join(' and ');
+  const trajectoryLo=Math.min(95, rec.overall+12), trajectoryHi=Math.min(95, rec.overall+18);
+
+  const html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>ANVIXA Marketing Maturity Report — '+co+'</title><style>'+
+  'body{font-family:Arial,Helvetica,sans-serif;color:#0c1a17;max-width:860px;margin:0 auto;padding:40px 28px 80px;line-height:1.65;font-size:14px}'+
+  'h1{font-family:Georgia,serif;font-size:30px;margin:0 0 4px}'+
+  'h2{font-family:Georgia,serif;font-size:19px;color:#0c1a17;margin:34px 0 6px;padding-bottom:6px;border-bottom:2px solid #2f9b86}'+
+  '.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#2f9b86;font-weight:700;margin-bottom:6px}'+
+  '.meta{color:#6c7a75;font-size:13px;margin-bottom:26px}'+
+  '.cover{text-align:center;padding:50px 20px;background:#0c1a17;color:#f4f2ec;border-radius:10px;margin-bottom:36px}'+
+  '.cover h1{color:#fff;font-size:32px}.cover .sub{color:#8fd3c2;font-style:italic;margin:6px 0 22px}'+
+  '.cover .who{font-size:15px;margin-top:18px}.cover .who b{color:#fff}'+
+  '.hero{background:#0c1a17;color:#f4f2ec;border-radius:10px;padding:30px;text-align:center;margin-bottom:26px}'+
+  '.hero .pct{font-size:52px;font-weight:700;color:#8fd3c2;line-height:1}'+
+  'table.data{width:100%;border-collapse:collapse;margin-bottom:22px}'+
+  'table.data th{background:#0c1a17;color:#fff;text-align:left;padding:9px 11px;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em}'+
+  'table.data td{padding:9px 11px;border-top:1px solid #dde4e0;font-size:13px}'+
+  'table.scoretbl{width:100%;border-collapse:collapse;margin:10px 0 16px;background:#f6f3ea}'+
+  'table.scoretbl td{padding:8px 12px;font-size:12.5px;border:1px solid #dde4e0}'+
+  '.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6c7a75;font-weight:700;margin:14px 0 4px}'+
+  'ol{margin:0 0 6px 22px;padding:0}ol li{margin-bottom:5px;font-size:13.5px}'+
+  '.note{background:#e6f4ef;border:1.5px solid #2f9b86;border-radius:6px;padding:16px 18px;font-size:13.5px;margin:18px 0}'+
+  '.impact{font-style:italic;color:#256f5e}'+
+  '.pribadge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:3px;margin-bottom:6px}'+
+  '.pri-h{background:#f6e3dd;color:#a5432e}.pri-m{background:#f6ecd3;color:#8a5f14}.pri-s{background:#e6f4ef;color:#1f7a5f}'+
+  '.rmgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}'+
+  '.rmcard{background:#fdfcf9;border:1px solid #dde4e0;padding:14px;border-radius:4px}'+
+  '.rmphase{font-size:10.5px;font-weight:700;color:#2f9b86;text-transform:uppercase;margin-bottom:8px}'+
+  '.rmcard ul{margin:0;padding-left:16px;font-size:12px;color:#26302d}.rmcard li{margin-bottom:5px}'+
+  '.cta{background:#0c1a17;color:#f4f2ec;text-align:center;border-radius:10px;padding:28px;margin-top:30px}'+
+  '.cta .t{font-family:Georgia,serif;font-size:20px;margin-bottom:8px}'+
+  '.footer{margin-top:30px;font-size:11px;color:#6c7a75;text-align:center}'+
+  '@media print{.cover,.hero,.cta{-webkit-print-color-adjust:exact;print-color-adjust:exact}h2{break-after:avoid}.rmcard,.note{break-inside:avoid}}'+
+  '</style></head><body>'+
+
+  '<div class="cover"><div class="eyebrow" style="color:#8fd3c2">ANVIXA · MARKETING INTELLIGENCE PLATFORM</div>'+
+  '<h1>Marketing Maturity Report</h1><div class="sub">Personalised Deep-Dive Edition</div>'+
+  '<div class="who">Prepared for<br><b>'+name+' \u00b7 '+role+', '+co+'</b><br>'+ind+' \u00b7 '+rev+' Revenue Stage</div>'+
+  '<div style="margin-top:18px;font-size:12.5px;color:rgba(248,245,239,.7)">Assessment Date: '+dateStr+'<br>Recommended Re-Assessment: '+reassessStr+'</div></div>'+
+
+  '<h1 style="font-size:22px">Executive Summary</h1>'+
+  '<p>This report is the personalised, step-by-step companion to '+co+'\u2019s ANVIXA diagnostic — dimension by dimension, action by action.</p>'+
+  '<table class="data"><thead><tr><th>Dimension</th><th>Score</th><th>Benchmark</th><th>Gap</th></tr></thead><tbody>'+scoreRows+'</tbody></table>'+
+  '<div class="note"><b>THE HEADLINE</b><br>'+co+' scores <b>'+rec.overall+'%</b> marketing maturity — '+Math.abs(gap)+' points '+(gap>=0?'ahead of':'behind')+' the stage-adjusted '+ind+' benchmark of '+rec.bm.overall+'%. Maturity band: <b>'+band+'</b>. The fastest lever available is <b>'+dimsByUrgency[0]+'</b>.</div>'+
+
+  '<h1 style="font-size:22px;margin-top:34px">Dimension Deep-Dive</h1>'+
+  '<p>Ordered by urgency rank, not alphabetically — start at the top.</p>'+dimSections+
+
+  '<h1 style="font-size:22px;margin-top:34px">Personalised Action Plan — Full Detail</h1>'+actionSections+
+
+  '<h1 style="font-size:22px;margin-top:34px">90-Day Execution Roadmap</h1><div class="rmgrid">'+roadmapHtml+'</div>'+
+
+  '<h1 style="font-size:22px;margin-top:34px">Projected Trajectory</h1>'+
+  '<p>Companies that execute a disciplined 90-day reset on their two lowest dimensions — for '+co+', that is <b>'+lowTwo+'</b> — typically improve those dimensions by 12\u201318 points each, lifting the overall maturity score into the <b>'+trajectoryLo+'\u2013'+trajectoryHi+'%</b> range.</p>'+
+  '<div class="note"><b>RE-ASSESSMENT DATE: '+reassessStr.toUpperCase()+'</b><br>Retake the full assessment in 90 days to measure the delta across all five dimensions. Score movement — not activity completed — is the only honest measure of whether the reset worked.</div>'+
+
+  '<h1 style="font-size:22px;margin-top:34px">Multi-Stakeholder Alignment Guide</h1>'+
+  '<p>The most valuable strategic insight is often not '+co+'\u2019s own score — it\u2019s the gap between how the CEO, CMO, and Sales Head each perceive the same marketing system. A 20-point or greater divergence on any single dimension is a strategic blind spot.</p>'+
+  '<ol><li>Invite 2\u20134 leadership team members to independently complete the same 50-question assessment.</li>'+
+  '<li>Do not let them see each other\u2019s answers before submitting.</li>'+
+  '<li>Compare dimension-by-dimension scores once all responses are in.</li>'+
+  '<li>Flag any dimension where the highest and lowest score differ by 20 points or more.</li>'+
+  '<li>Bring those divergence points to your next leadership meeting as agenda items in their own right.</li></ol>'+
+
+  '<div class="cta"><div class="eyebrow" style="color:#8fd3c2">ANVIXA \u00b7 IQ + EQ</div><div class="t">Book a 30-minute benchmark review</div>'+
+  '<div style="font-size:13px;color:rgba(248,245,239,.8);max-width:520px;margin:0 auto 10px">Walk through this report with a Twiraa strategist — where the gaps are costing pipeline, and the fastest 90-day sequence to close them.</div>'+
+  '<div style="font-size:13px;color:#8fd3c2">twiraa.com \u00b7 hello@twiraa.com</div></div>'+
+  '<div class="footer">Confidential — prepared for internal Twiraa use ahead of the client benchmark review \u00b7 Generated from live ANVIXA assessment data \u00b7 '+dateStr+'</div>'+
+  '</body></html>';
+
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='ANVIXA_Full_Report_'+co.replace(/[^a-z0-9]+/gi,'_')+'.html';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ══════════════════ Sample client seeding (for testing the admin console) ══════════════════ */
+function pickAnswerForLevel(q,level){
+  if(q.single){
+    const order=q.o.map((_,i)=>i).sort((a,b)=>q.w[b]-q.w[a]);
+    let rank;
+    if(level>=0.8)rank=0; else if(level>=0.55)rank=Math.min(1,order.length-1); else if(level>=0.3)rank=Math.min(2,order.length-1); else rank=order.length-1;
+    return [order[rank]];
+  }
+  const positive=q.o.map((_,i)=>i).filter(i=>q.w[i]>1).sort((a,b)=>q.w[b]-q.w[a]);
+  const count=Math.max(0,Math.min(positive.length,Math.round(level*positive.length)));
+  return positive.slice(0,count);
+}
+function genSampleAnswers(levels){
+  return Q.map(q=>pickAnswerForLevel(q, levels[q.sec] ?? 0.5));
+}
+const SAMPLE_CLIENTS=[
+  {name:'Priya Nair',co:'Verve Foods',role:'Founder / Co-founder',ind:'D2C / E-commerce',rev:'₹1–5 Cr',team:'11–50 (Early growth)',
+   levels:{'Strategy & Positioning':0.35,'Brand & Identity':0.30,'Channels & Content':0.15,'Customer & Retention':0.25,'Operations & Growth':0.30}, daysAgo:12},
+  {name:'Arjun Mehta',co:'Cloudline Systems',role:'CMO / Marketing Head',ind:'B2B SaaS / Technology',rev:'₹5–25 Cr',team:'51–200 (Scale-up)',
+   levels:{'Strategy & Positioning':0.65,'Brand & Identity':0.55,'Channels & Content':0.50,'Customer & Retention':0.45,'Operations & Growth':0.60}, daysAgo:6},
+  {name:'Fatima Sheikh',co:'Meridian Wellness',role:'COO / Business Head',ind:'Healthcare / Wellness',rev:'₹1–5 Cr',team:'11–50 (Early growth)',
+   levels:{'Strategy & Positioning':0.45,'Brand & Identity':0.40,'Channels & Content':0.35,'Customer & Retention':0.50,'Operations & Growth':0.30}, daysAgo:3},
+  {name:'Rahul Verma',co:'Ironclad Manufacturing',role:'CEO / MD',ind:'Manufacturing / Industrial',rev:'₹25–100 Cr',team:'201–500 (Mid-market)',
+   levels:{'Strategy & Positioning':0.75,'Brand & Identity':0.60,'Channels & Content':0.55,'Customer & Retention':0.65,'Operations & Growth':0.80}, daysAgo:20},
+  {name:'Ananya Rao',co:'Bloom Retail',role:'Other',ind:'Retail / Consumer Goods',rev:'Under ₹1 Cr',team:'1–10 (Startup)',
+   levels:{'Strategy & Positioning':0.20,'Brand & Identity':0.25,'Channels & Content':0.10,'Customer & Retention':0.15,'Operations & Growth':0.20}, daysAgo:1},
+];
+async function seedSamples(){
+  const btn=document.getElementById('seed-btn');
+  const msg=document.getElementById('seed-msg');
+  if(btn){btn.disabled=true; btn.textContent='Loading…';}
+  try{
+    const existingCo=new Set(CLIENT_INDEX.map(c=>c.co));
+    const toAdd=SAMPLE_CLIENTS.filter(s=>!existingCo.has(s.co));
+    if(toAdd.length===0){
+      if(msg)msg.textContent='Sample clients are already loaded.';
+    }else{
+      for(const s of toAdd){
+        const answers=genSampleAnswers(s.levels);
+        const {sp,overall}=computeScores(answers);
+        const bm0=BENCHMARKS[s.ind]||BENCHMARKS['Other'];
+        const bm=adjBench(bm0,s.rev);
+        const submittedAt=new Date(Date.now()-s.daysAgo*86400000).toISOString();
+        const ud={name:s.name,co:s.co,role:s.role,ind:s.ind,rev:s.rev,team:s.team};
+        await apiPost('/api/submissions', {ud, answers, sp, overall, bm, submittedAt});
+      }
+      if(msg)msg.textContent='Loaded '+toAdd.length+' sample client'+(toAdd.length===1?'':'s')+'.';
+    }
+    await refreshClients();
+  }catch(e){
+    if(msg)msg.textContent='Something went wrong loading sample data. Check the browser console for details.';
+    console.error('seedSamples error',e);
+  }
+  if(btn){btn.disabled=false; btn.textContent='+ Load Sample Clients';}
+}
+async function clearAllClients(){
+  if(!confirm('Remove all client submissions (including samples)? This cannot be undone.'))return;
+  try{
+    await apiDelete('/api/submissions');
+    CLIENT_INDEX=[];
+    renderAdminStats();
+    renderClientTable();
+    document.getElementById('seed-msg').textContent='All submissions cleared. Click "Load Sample Clients" to reload sample data.';
+  }catch(e){console.error(e);}
+}
+
+</script>
+</body>
+</html>
