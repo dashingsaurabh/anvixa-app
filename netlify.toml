@@ -12,6 +12,6 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://YOUR-BACKEND-URL.onrender.com/api/:splat"
+  to = "https://anvixa-app.onrender.com/api/:splat"
   status = 200
   force = true
