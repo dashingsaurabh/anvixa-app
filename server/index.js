@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 
 const db = require('./db');
+const mailer = require('./mailer');
 const { checkPassword, issueToken, requireAdmin } = require('./auth');
 
 const app = express();
@@ -41,7 +42,13 @@ app.post('/api/submissions', (req, res) => {
     submittedAt
   };
   db.addSubmission(record)
-    .then(() => res.status(201).json({ id: record.id }))
+    .then(() => {
+      res.status(201).json({ id: record.id });
+      // Fire-and-forget: an email failure should never affect the saved submission or the response already sent.
+      mailer.sendSubmissionNotification(record).catch(err => {
+        console.error('Failed to send submission notification email', err);
+      });
+    })
     .catch(err => {
       console.error('Failed to save submission', err);
       res.status(500).json({ error: 'Could not save submission.' });
