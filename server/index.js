@@ -91,5 +91,5 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`ANVIXA server running on http://localhost:${PORT}`);
-  console.log(`Database file: ${db.DB_PATH}`);
+  console.log('Database: Postgres (DATABASE_URL)');
 });

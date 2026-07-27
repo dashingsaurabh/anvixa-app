@@ -5,15 +5,15 @@ assessment on one side, and a password-protected admin console on the other
 where your team can see every submission, drill into a client's exact
 answers, and generate the full personalised report.
 
-This is a small Node.js server (Express) with a lightweight built-in
-database, serving one frontend page. No external services required to run
-it locally.
+This is a small Node.js server (Express) backed by Postgres, serving one
+frontend page.
 
 ## What's real here
 
-- **Real database.** Every submission is written to `data/db.json` on disk.
-  It survives restarts. (See "Going to production" below for the one thing
-  to watch out for when you deploy.)
+- **Real database.** Every submission is written to a Postgres database
+  (Supabase's free tier works well) via `DATABASE_URL`. Unlike a local disk,
+  this survives redeploys and restarts on hosts like Render whose local
+  filesystem is ephemeral.
 - **Real authentication.** The admin passcode is never stored in the page's
   source — it's hashed with bcrypt on the server, checked server-side, and a
   signed session token (JWT, 12-hour expiry) is issued on success. Viewing
@@ -75,30 +75,19 @@ together with one redirect rule. That file walks through exactly that.
 1. Push this folder to a GitHub repo.
 2. On [Render](https://render.com), create a new **Web Service** from that repo.
 3. Build command: `npm install`. Start command: `npm start`.
-4. Add the two environment variables from your `.env` (`JWT_SECRET`,
-   `ADMIN_PASSWORD_HASH`) in Render's dashboard — never commit `.env` itself.
+4. Add the environment variables from your `.env` (`JWT_SECRET`,
+   `ADMIN_PASSWORD_HASH`, `DATABASE_URL`) in Render's dashboard — never
+   commit `.env` itself.
 5. Deploy. Render gives you a URL immediately; point your own domain at it
    later from Render's "Custom Domains" tab once you're ready.
 
-### The one thing to get right: persistent storage
+### Database
 
-`data/db.json` lives on the server's local disk. Most hosts' **free**
-tiers wipe local disk on every redeploy or restart — meaning your client
-submissions would vanish the next time you push a change. Before you
-launch for real:
-
-- **Cheapest fix:** on Render, attach a **Persistent Disk** to the service
-  (a paid add-on, a few dollars a month) and point `DB_PATH` at a file on
-  that disk.
-- **More robust fix:** migrate `server/db.js` to a real hosted database —
-  Postgres on Render or [Supabase](https://supabase.com) (has a free tier)
-  is the natural next step once you have real client data you can't afford
-  to lose. Every other file in this project talks to `server/db.js`'s five
-  functions (`addSubmission`, `listSubmissions`, `getSubmission`, `clearAll`,
-  `removeSubmission`) — that's the only file that would need to change.
-
-Don't launch with real client data on a free ephemeral disk. Test with it
-freely; just don't collect anything you'd be upset to lose.
+Submissions are stored in Postgres via `DATABASE_URL` — [Supabase](https://supabase.com)'s
+free tier is the simplest option. Create a project there, copy the
+connection string from Settings > Database > Connection string (URI), and
+set it as `DATABASE_URL`. Unlike a local disk, this isn't wiped on
+redeploys or restarts, so it's safe to use for real client data.
 
 ## Project layout
 
