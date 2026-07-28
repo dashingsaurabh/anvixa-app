@@ -64,24 +64,44 @@ app.post('/api/admin/login', async (req, res) => {
 });
 
 // ─── Admin: list / read / delete submissions (auth required) ───────
-app.get('/api/submissions', requireAdmin, (req, res) => {
-  res.json(db.listSubmissions());
+app.get('/api/submissions', requireAdmin, async (req, res) => {
+  try {
+    res.json(await db.listSubmissions());
+  } catch (err) {
+    console.error('Failed to list submissions', err);
+    res.status(500).json({ error: 'Could not load submissions.' });
+  }
 });
 
-app.get('/api/submissions/:id', requireAdmin, (req, res) => {
-  const rec = db.getSubmission(req.params.id);
-  if (!rec) return res.status(404).json({ error: 'Not found.' });
-  res.json(rec);
+app.get('/api/submissions/:id', requireAdmin, async (req, res) => {
+  try {
+    const rec = await db.getSubmission(req.params.id);
+    if (!rec) return res.status(404).json({ error: 'Not found.' });
+    res.json(rec);
+  } catch (err) {
+    console.error('Failed to load submission', err);
+    res.status(500).json({ error: 'Could not load submission.' });
+  }
 });
 
 app.delete('/api/submissions/:id', requireAdmin, async (req, res) => {
-  await db.removeSubmission(req.params.id);
-  res.json({ ok: true });
+  try {
+    await db.removeSubmission(req.params.id);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Failed to remove submission', err);
+    res.status(500).json({ error: 'Could not remove submission.' });
+  }
 });
 
 app.delete('/api/submissions', requireAdmin, async (req, res) => {
-  await db.clearAll();
-  res.json({ ok: true });
+  try {
+    await db.clearAll();
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Failed to clear submissions', err);
+    res.status(500).json({ error: 'Could not clear submissions.' });
+  }
 });
 
 // ─── Fallback: serve the SPA for any other GET ─────────────────────
