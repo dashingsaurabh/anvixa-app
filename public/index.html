@@ -928,7 +928,15 @@ function buildRadar(sp,bm){
     '</g></svg>';
 }
 /* ══════════════════ CLIENT-FACING PDF DOWNLOAD ══════════════════ */
-function downloadReportPDF(){
+/* Manual pixel-height pagination instead of html2pdf's own DOM-based
+   "avoid-all" pagebreak plugin — that plugin proved unreliable across
+   browsers/machines (blank leading pages, huge gaps, truncated content),
+   likely from font-load timing racing its DOM-to-canvas coordinate mapping.
+   Slicing a single rendered canvas by raw pixel height is deterministic:
+   every pixel lands on some page, top to bottom, no gaps or duplication —
+   the only tradeoff is a card can be sliced across a page break, which is
+   far better than losing content entirely. */
+async function downloadReportPDF(){
   const btn=document.getElementById('btn-download-pdf');
   if(typeof html2pdf==='undefined'){
     alert('PDF library failed to load — check your connection and try again.');
@@ -939,27 +947,57 @@ function downloadReportPDF(){
   const ctaDisplay=cta?cta.style.display:'';
   if(cta)cta.style.display='none';
   const prevMinHeight=source.style.minHeight;
-  source.style.minHeight='0'; // avoid the screen's min-height:100vh throwing off page-break math
+  source.style.minHeight='0';
   if(btn){btn.disabled=true;btn.textContent='Preparing PDF…';}
   const filename='ANVIXA_Report_'+(UD.co||'Report').replace(/[^a-z0-9]+/gi,'_')+'.pdf';
-  html2pdf().set({
-    margin:0.3,
-    filename,
-    image:{type:'jpeg',quality:0.95},
-    html2canvas:{scale:2,useCORS:true,backgroundColor:'#f4f2ec'},
-    jsPDF:{unit:'in',format:'a4',orientation:'portrait'},
-    pagebreak:{mode:['css','legacy']}
-  }).from(source).save().then(()=>{
+  try{
+    const worker=html2pdf().set({html2canvas:{scale:2,useCORS:true,backgroundColor:'#f4f2ec'}}).from(source);
+    const canvas=await worker.toCanvas().get('canvas');
+    const pdf=await worker.toPdf().get('pdf');
+
+    // html2pdf's own (unreliable) auto-pagination already populated this
+    // pdf object with its own pages — strip back to one page and repaint
+    // it fully before drawing our own slices, so none of that bleeds through.
+    while(pdf.internal.getNumberOfPages()>1){
+      pdf.deletePage(pdf.internal.getNumberOfPages());
+    }
+
+    const pageWidth=pdf.internal.pageSize.getWidth();
+    const pageHeight=pdf.internal.pageSize.getHeight();
+    const marginPt=22;
+    const usableWidthPt=pageWidth-marginPt*2;
+    const usableHeightPt=pageHeight-marginPt*2;
+    const ratio=usableWidthPt/canvas.width; // pt per source pixel
+    const pageHeightPx=Math.floor(usableHeightPt/ratio);
+
+    let y=0,first=true;
+    while(y<canvas.height){
+      const sliceHeightPx=Math.min(pageHeightPx,canvas.height-y);
+      const sliceCanvas=document.createElement('canvas');
+      sliceCanvas.width=canvas.width;
+      sliceCanvas.height=sliceHeightPx;
+      sliceCanvas.getContext('2d').drawImage(canvas,0,y,canvas.width,sliceHeightPx,0,0,canvas.width,sliceHeightPx);
+      const imgData=sliceCanvas.toDataURL('image/jpeg',0.95);
+      if(!first)pdf.addPage();
+      pdf.setFillColor(244,242,236);
+      pdf.rect(0,0,pageWidth,pageHeight,'F');
+      const sliceHeightPt=sliceHeightPx*ratio;
+      pdf.addImage(imgData,'JPEG',marginPt,marginPt,usableWidthPt,sliceHeightPt);
+      y+=sliceHeightPx;
+      first=false;
+    }
+
+    pdf.save(filename);
     if(cta)cta.style.display=ctaDisplay;
     source.style.minHeight=prevMinHeight;
     if(btn){btn.disabled=false;btn.textContent='Download PDF';}
-  }).catch(err=>{
+  }catch(err){
     console.error('PDF generation failed',err);
     if(cta)cta.style.display=ctaDisplay;
     source.style.minHeight=prevMinHeight;
     if(btn){btn.disabled=false;btn.textContent='Download PDF';}
     alert('Could not generate the PDF. Please try again.');
-  });
+  }
 }
 
 /* ══════════════════ PERSISTENCE — real backend API ══════════════════ */
