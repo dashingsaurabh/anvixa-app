@@ -951,6 +951,17 @@ async function downloadReportPDF(){
     const canvas=await worker.toCanvas().get('canvas');
     const pdf=await worker.toPdf().get('pdf'); // reuse a working jsPDF instance from html2pdf's own pipeline
 
+    // html2pdf's own toPdf() step already auto-paginated this pdf object
+    // (its own broken pagebreak logic — sometimes 1 page, sometimes several,
+    // inconsistently). Strip down to a single page by deleting from the END
+    // (deleting from the front while later re-numbering pages was the actual
+    // cause of the previous ghosting/double-render bug), then resize that
+    // one remaining page in place rather than adding a new one — this
+    // avoids page add/delete ordering entirely.
+    while(pdf.internal.getNumberOfPages()>1){
+      pdf.deletePage(pdf.internal.getNumberOfPages());
+    }
+
     const pageWidthPt=595.28; // A4 width in points
     const marginPt=22;
     const usableWidthPt=pageWidthPt-marginPt*2;
@@ -958,10 +969,8 @@ async function downloadReportPDF(){
     const contentHeightPt=canvas.height*ratio;
     const pageHeightPt=contentHeightPt+marginPt*2;
 
-    pdf.addPage([pageWidthPt,pageHeightPt]); // custom-sized new page
-    while(pdf.internal.getNumberOfPages()>1){
-      pdf.deletePage(1); // drop html2pdf's own auto-generated page(s), keep only ours
-    }
+    pdf.internal.pageSize.setWidth(pageWidthPt);
+    pdf.internal.pageSize.setHeight(pageHeightPt);
 
     pdf.setFillColor(244,242,236);
     pdf.rect(0,0,pageWidthPt,pageHeightPt,'F');
