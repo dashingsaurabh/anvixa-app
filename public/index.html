@@ -170,7 +170,7 @@ strong,b{font-weight:600}
 
 /* Scorecard with benchmark */
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;margin-bottom:3rem}
-.cat-card{background:var(--white);border:1px solid var(--border);padding:1.25rem}
+.cat-card{background:var(--white);border:1px solid var(--border);padding:1.25rem;page-break-inside:avoid;break-inside:avoid}
 .cat-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
 .cat-name{font-size:13px;font-weight:500;color:var(--char);flex:1}
 .cat-scores{text-align:right}
@@ -190,7 +190,7 @@ strong,b{font-weight:600}
 /* Insight row */
 .insight-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem}
 @media(max-width:640px){.insight-row{grid-template-columns:1fr}}
-.ins-card{background:var(--white);border:1px solid var(--border);padding:1.5rem}
+.ins-card{background:var(--white);border:1px solid var(--border);padding:1.5rem;page-break-inside:avoid;break-inside:avoid}
 .ins-lbl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:500;display:flex;align-items:center;gap:7px}
 .ins-dot{display:inline-flex;width:16px;height:16px;border-radius:50%;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:700;flex-shrink:0}
 .dot-g{background:var(--green)}.dot-r{background:var(--red)}
@@ -210,7 +210,7 @@ strong,b{font-weight:600}
 
 /* Suggestions */
 .sug-list{margin-bottom:3rem}
-.sug-card{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin-bottom:11px;display:flex;gap:1.25rem;align-items:flex-start;transition:transform .15s}
+.sug-card{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin-bottom:11px;display:flex;gap:1.25rem;align-items:flex-start;transition:transform .15s;page-break-inside:avoid;break-inside:avoid}
 .sug-card:hover{transform:translateY(-2px)}
 .sug-card.ph{border-left:4px solid var(--red);border-radius:0 0 0 0}
 .sug-card.pm{border-left:4px solid var(--amber)}
@@ -230,7 +230,7 @@ strong,b{font-weight:600}
 /* 90-day roadmap */
 .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:3rem}
 @media(max-width:600px){.roadmap{grid-template-columns:1fr}}
-.roadmap-card{background:var(--white);border:1px solid var(--border);padding:1.25rem}
+.roadmap-card{background:var(--white);border:1px solid var(--border);padding:1.25rem;page-break-inside:avoid;break-inside:avoid}
 .roadmap-phase{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
 .roadmap-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:.75rem}
 .roadmap-items{list-style:none}
@@ -938,6 +938,8 @@ function downloadReportPDF(){
   const cta=source.querySelector('.r-cta');
   const ctaDisplay=cta?cta.style.display:'';
   if(cta)cta.style.display='none';
+  const prevMinHeight=source.style.minHeight;
+  source.style.minHeight='0'; // avoid the screen's min-height:100vh throwing off page-break math
   if(btn){btn.disabled=true;btn.textContent='Preparing PDF…';}
   const filename='ANVIXA_Report_'+(UD.co||'Report').replace(/[^a-z0-9]+/gi,'_')+'.pdf';
   html2pdf().set({
@@ -946,13 +948,15 @@ function downloadReportPDF(){
     image:{type:'jpeg',quality:0.95},
     html2canvas:{scale:2,useCORS:true,backgroundColor:'#f4f2ec'},
     jsPDF:{unit:'in',format:'a4',orientation:'portrait'},
-    pagebreak:{mode:['avoid-all','css','legacy']}
+    pagebreak:{mode:['css','legacy']}
   }).from(source).save().then(()=>{
     if(cta)cta.style.display=ctaDisplay;
+    source.style.minHeight=prevMinHeight;
     if(btn){btn.disabled=false;btn.textContent='Download PDF';}
   }).catch(err=>{
     console.error('PDF generation failed',err);
     if(cta)cta.style.display=ctaDisplay;
+    source.style.minHeight=prevMinHeight;
     if(btn){btn.disabled=false;btn.textContent='Download PDF';}
     alert('Could not generate the PDF. Please try again.');
   });
