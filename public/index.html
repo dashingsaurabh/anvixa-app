@@ -588,6 +588,7 @@ table.data tr.rowlink:hover{background:var(--gold-pale)}
       <div class="detail-actions" style="display:flex;gap:.6rem;flex-wrap:wrap">
         <button class="btn-nav" onclick="downloadAnswersCSV()">&darr; Download Answers (CSV)</button>
         <button class="btn-nav btn-next" onclick="downloadFullReport()">&darr; Download Full Report</button>
+        <button class="btn-nav" style="color:var(--red);border-color:var(--red)" onclick="deleteCurrentSubmission()">Delete Submission</button>
       </div>
     </div>
     <div class="two-col">
@@ -1131,6 +1132,20 @@ async function openClient(id){
   document.getElementById('d-qa').innerHTML=qaHtml;
   show('admin-detail');
 
+}
+async function deleteCurrentSubmission(){
+  if(!CURRENT_DETAIL)return;
+  const label=CURRENT_DETAIL.ud.name+' · '+CURRENT_DETAIL.ud.co;
+  if(!confirm('Delete this submission ('+label+')? This cannot be undone.'))return;
+  try{
+    await apiDelete('/api/submissions/'+CURRENT_DETAIL.id);
+    CURRENT_DETAIL=null;
+    show('admin-dash');
+    await refreshClients();
+  }catch(e){
+    console.error(e);
+    alert('Could not delete this submission. Check the console for details.');
+  }
 }
 
 /* ══════════════════ REPORT DOWNLOAD (printable HTML) ══════════════════ */
