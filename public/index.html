@@ -329,6 +329,14 @@ table.data tr.rowlink:hover{background:var(--gold-pale)}
 .side-stat{background:var(--white);border:1px solid var(--border);padding:1.1rem 1.25rem;margin-bottom:.9rem}
 .side-stat .l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin-bottom:.35rem}
 .side-stat .v{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--ink)}
+
+/* ══ FLOATING WHATSAPP ══ */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:400;width:54px;height:54px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px -8px rgba(61,158,137,.6);transition:transform .3s,background .3s;cursor:pointer;text-decoration:none}
+.wa-float:hover{transform:scale(1.08);background:var(--gold-lt)}
+.wa-float svg{width:26px;height:26px;color:var(--ink)}
+.wa-float::before{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid var(--gold);animation:waPing 2.4s ease-out infinite;pointer-events:none}
+@keyframes waPing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+@media(max-width:480px){.wa-float{width:48px;height:48px;bottom:20px;right:20px}}
 </style>
 
 <body>
@@ -365,6 +373,7 @@ table.data tr.rowlink:hover{background:var(--gold-pale)}
     <p class="intake-sub">This calibrates your scores against industry and revenue-stage benchmarks and makes every recommendation specific to your context. Fields marked * are required.</p>
     <div class="req-note">* Required fields — incomplete profiles receive generic, uncalibrated output.</div>
     <div class="fg"><label class="fl">Your full name <span class="req-mark">*</span></label><input type="text" id="f-name" class="fi" placeholder="e.g. Sam"><div class="err-msg" id="err-name">Please enter your name</div></div>
+    <div class="fg"><label class="fl">Email address <span class="req-mark">*</span></label><input type="email" id="f-email" class="fi" placeholder="e.g. sam@company.com"><div class="err-msg" id="err-email">Please enter a valid email address</div></div>
     <div class="fg"><label class="fl">Company name <span class="req-mark">*</span></label><input type="text" id="f-co" class="fi" placeholder="e.g. pam"><div class="err-msg" id="err-co">Please enter your company name</div></div>
     <div class="fg-grid">
       <div class="fg"><label class="fl">Industry <span class="req-mark">*</span></label>
@@ -558,7 +567,7 @@ table.data tr.rowlink:hover{background:var(--gold-pale)}
     <h1 class="admin-h1">Every completed assessment, in one place</h1>
     <div class="stat-row" id="admin-stats"></div>
     <div class="admin-toolbar">
-      <input id="admin-search" type="text" class="fi" placeholder="Search by name, company, or industry…" oninput="renderClientTable()">
+      <input id="admin-search" type="text" class="fi" placeholder="Search by name, email, company, or industry…" oninput="renderClientTable()">
       <button class="btn-nav" onclick="refreshClients()">&#8635; Refresh</button>
       <button class="btn-nav btn-next" onclick="seedSamples()" id="seed-btn">+ Load Sample Clients</button>
       <button class="btn-nav" onclick="clearAllClients()">Clear All</button>
@@ -604,6 +613,11 @@ table.data tr.rowlink:hover{background:var(--gold-pale)}
     </div>
   </div>
 </section>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/919220238222?text=Hi%20Twiraa%2C%20I'd%20like%20to%20know%20more." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.13 1.02-2.42.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.87.26.13.44.2.5.31.06.11.06.65-.18 1.33z"/></svg>
+</a>
 
 <script>
 /* ══════════════════ DATA ══════════════════ */
@@ -739,17 +753,20 @@ let CUR=0,UD={};
 
 function goQuiz(){
   const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
   const co=document.getElementById('f-co').value.trim();
   const ind=document.getElementById('f-ind').value;
   const rev=document.getElementById('f-rev').value;
+  const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   let ok=true;
   document.getElementById('err-name').style.display=name?'none':'block';
+  document.getElementById('err-email').style.display=emailOk?'none':'block';
   document.getElementById('err-co').style.display=co?'none':'block';
   document.getElementById('err-ind').style.display=ind?'none':'block';
   document.getElementById('err-rev').style.display=rev?'none':'block';
-  if(!name||!co||!ind||!rev){return;}
+  if(!name||!emailOk||!co||!ind||!rev){return;}
   UD={
-    name, co,
+    name, email, co,
     ind: ind,
     rev,
     team:document.getElementById('f-team').value,
@@ -831,6 +848,7 @@ function finishQuiz(){
 function retake(){
   CUR=0;ANS=Q.map(()=>[]);UD={};
   document.getElementById('f-name').value='';
+  document.getElementById('f-email').value='';
   document.getElementById('f-co').value='';
   document.getElementById('f-ind').value='';
   document.getElementById('f-rev').value='';
@@ -1052,16 +1070,16 @@ function renderAdminStats(){
 }
 function renderClientTable(){
   const q=(document.getElementById('admin-search').value||'').toLowerCase();
-  const rows=CLIENT_INDEX.filter(c=>!q||(c.name+c.co+c.ind).toLowerCase().includes(q));
+  const rows=CLIENT_INDEX.filter(c=>!q||(c.name+c.co+c.ind+(c.email||'')).toLowerCase().includes(q));
   const wrap=document.getElementById('admin-table-wrap');
   if(!rows.length){
     wrap.innerHTML='<div class="empty-state">No submissions yet. Once a client completes the assessment on this page, they will appear here automatically.</div>';
     return;
   }
-  let html='<table class="data"><thead><tr><th>Name</th><th>Company</th><th>Industry</th><th>Revenue</th><th>Score</th><th>Submitted</th></tr></thead><tbody>';
+  let html='<table class="data"><thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Industry</th><th>Revenue</th><th>Score</th><th>Submitted</th></tr></thead><tbody>';
   rows.forEach(c=>{
     const d=new Date(c.submittedAt).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
-    html+='<tr class="rowlink" onclick="openClient(\''+c.id+'\')"><td><strong>'+esc(c.name)+'</strong>'+(c.role?'<br><span style="color:var(--muted);font-size:11px">'+esc(c.role)+'</span>':'')+'</td><td>'+esc(c.co)+'</td><td>'+esc(c.ind)+'</td><td>'+esc(c.rev)+'</td><td><span class="score-chip '+bandClass(c.overall)+'">'+c.overall+'%</span></td><td>'+d+'</td></tr>';
+    html+='<tr class="rowlink" onclick="openClient(\''+c.id+'\')"><td><strong>'+esc(c.name)+'</strong>'+(c.role?'<br><span style="color:var(--muted);font-size:11px">'+esc(c.role)+'</span>':'')+'</td><td>'+esc(c.email)+'</td><td>'+esc(c.co)+'</td><td>'+esc(c.ind)+'</td><td>'+esc(c.rev)+'</td><td><span class="score-chip '+bandClass(c.overall)+'">'+c.overall+'%</span></td><td>'+d+'</td></tr>';
   });
   html+='</tbody></table>';
   wrap.innerHTML=html;
@@ -1076,7 +1094,7 @@ async function openClient(id){
   }catch(e){console.error(e);return;}
   CURRENT_DETAIL=rec;
   document.getElementById('d-name').textContent=rec.ud.name+' · '+rec.ud.co;
-  document.getElementById('d-meta').textContent=(rec.ud.role||'Leader')+' · '+rec.ud.ind+' · '+rec.ud.rev+(rec.ud.team?' · '+rec.ud.team:'');
+  document.getElementById('d-meta').textContent=(rec.ud.role||'Leader')+(rec.ud.email?' · '+rec.ud.email:'')+' · '+rec.ud.ind+' · '+rec.ud.rev+(rec.ud.team?' · '+rec.ud.team:'');
   document.getElementById('d-overall').textContent=rec.overall+'%';
   document.getElementById('d-bench').textContent=rec.bm.overall+'%';
   document.getElementById('d-date').textContent=new Date(rec.submittedAt).toLocaleString('en-IN',{dateStyle:'long',timeStyle:'short'});
@@ -1329,15 +1347,15 @@ function genSampleAnswers(levels){
   return Q.map(q=>pickAnswerForLevel(q, levels[q.sec] ?? 0.5));
 }
 const SAMPLE_CLIENTS=[
-  {name:'Priya Nair',co:'Verve Foods',role:'Founder / Co-founder',ind:'D2C / E-commerce',rev:'₹1–5 Cr',team:'11–50 (Early growth)',
+  {name:'Priya Nair',email:'priya.nair@vervefoods.com',co:'Verve Foods',role:'Founder / Co-founder',ind:'D2C / E-commerce',rev:'₹1–5 Cr',team:'11–50 (Early growth)',
    levels:{'Strategy & Positioning':0.35,'Brand & Identity':0.30,'Channels & Content':0.15,'Customer & Retention':0.25,'Operations & Growth':0.30}, daysAgo:12},
-  {name:'Arjun Mehta',co:'Cloudline Systems',role:'CMO / Marketing Head',ind:'B2B SaaS / Technology',rev:'₹5–25 Cr',team:'51–200 (Scale-up)',
+  {name:'Arjun Mehta',email:'arjun.mehta@cloudlinesystems.com',co:'Cloudline Systems',role:'CMO / Marketing Head',ind:'B2B SaaS / Technology',rev:'₹5–25 Cr',team:'51–200 (Scale-up)',
    levels:{'Strategy & Positioning':0.65,'Brand & Identity':0.55,'Channels & Content':0.50,'Customer & Retention':0.45,'Operations & Growth':0.60}, daysAgo:6},
-  {name:'Fatima Sheikh',co:'Meridian Wellness',role:'COO / Business Head',ind:'Healthcare / Wellness',rev:'₹1–5 Cr',team:'11–50 (Early growth)',
+  {name:'Fatima Sheikh',email:'fatima.sheikh@meridianwellness.com',co:'Meridian Wellness',role:'COO / Business Head',ind:'Healthcare / Wellness',rev:'₹1–5 Cr',team:'11–50 (Early growth)',
    levels:{'Strategy & Positioning':0.45,'Brand & Identity':0.40,'Channels & Content':0.35,'Customer & Retention':0.50,'Operations & Growth':0.30}, daysAgo:3},
-  {name:'Rahul Verma',co:'Ironclad Manufacturing',role:'CEO / MD',ind:'Manufacturing / Industrial',rev:'₹25–100 Cr',team:'201–500 (Mid-market)',
+  {name:'Rahul Verma',email:'rahul.verma@ironcladmfg.com',co:'Ironclad Manufacturing',role:'CEO / MD',ind:'Manufacturing / Industrial',rev:'₹25–100 Cr',team:'201–500 (Mid-market)',
    levels:{'Strategy & Positioning':0.75,'Brand & Identity':0.60,'Channels & Content':0.55,'Customer & Retention':0.65,'Operations & Growth':0.80}, daysAgo:20},
-  {name:'Ananya Rao',co:'Bloom Retail',role:'Other',ind:'Retail / Consumer Goods',rev:'Under ₹1 Cr',team:'1–10 (Startup)',
+  {name:'Ananya Rao',email:'ananya.rao@bloomretail.com',co:'Bloom Retail',role:'Other',ind:'Retail / Consumer Goods',rev:'Under ₹1 Cr',team:'1–10 (Startup)',
    levels:{'Strategy & Positioning':0.20,'Brand & Identity':0.25,'Channels & Content':0.10,'Customer & Retention':0.15,'Operations & Growth':0.20}, daysAgo:1},
 ];
 async function seedSamples(){
@@ -1356,7 +1374,7 @@ async function seedSamples(){
         const bm0=BENCHMARKS[s.ind]||BENCHMARKS['Other'];
         const bm=adjBench(bm0,s.rev);
         const submittedAt=new Date(Date.now()-s.daysAgo*86400000).toISOString();
-        const ud={name:s.name,co:s.co,role:s.role,ind:s.ind,rev:s.rev,team:s.team};
+        const ud={name:s.name,email:s.email,co:s.co,role:s.role,ind:s.ind,rev:s.rev,team:s.team};
         await apiPost('/api/submissions', {ud, answers, sp, overall, bm, submittedAt});
       }
       if(msg)msg.textContent='Loaded '+toAdd.length+' sample client'+(toAdd.length===1?'':'s')+'.';

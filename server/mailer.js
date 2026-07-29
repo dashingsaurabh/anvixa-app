@@ -34,6 +34,7 @@ function buildMessage(record) {
     'New ANVIXA assessment submitted.',
     '',
     'Name: ' + ud.name,
+    'Email: ' + (ud.email || '—'),
     'Company: ' + ud.co,
     'Role: ' + (ud.role || '—'),
     'Industry: ' + ud.ind,

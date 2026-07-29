@@ -28,7 +28,7 @@ app.get('/api/health', (req, res) => res.json({ ok: true }));
 // No auth — this is what the client-facing quiz calls when someone finishes.
 app.post('/api/submissions', (req, res) => {
   const { ud, answers, sp, overall, bm } = req.body || {};
-  if (!ud || !ud.name || !ud.co || !ud.ind || !ud.rev) {
+  if (!ud || !ud.name || !ud.email || !ud.co || !ud.ind || !ud.rev) {
     return res.status(400).json({ error: 'Missing required profile fields.' });
   }
   if (!Array.isArray(answers) || !sp || typeof overall !== 'number' || !bm) {

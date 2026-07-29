@@ -69,6 +69,7 @@ async function listSubmissions() {
   return rows.map(r => ({
     id: r.id,
     name: r.ud.name,
+    email: r.ud.email,
     co: r.ud.co,
     ind: r.ud.ind,
     rev: r.ud.rev,
