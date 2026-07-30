@@ -14,7 +14,7 @@ The core idea behind Twiraa is that most marketing agencies split IQ (data, anal
 - [The Free IQ+EQ Audit](https://twiraa.com/#audit): A free 60-minute growth diagnostic scored across 12 dimensions (market position, funnel & conversion, data & attribution, narrative, emotional resonance, brand trust, and more). Limited to 5 slots per month.
 - [The 30-Day Sprint](https://twiraa.com/#process): A fixed-scope engagement that delivers a custom blueprint plus one executed, measured win — credited toward a retainer if the client continues.
 - [The Growth Retainer](https://twiraa.com/#process): A 6-month-minimum ongoing engagement running the full IQ+EQ engine monthly, with one unified report across both.
-- [ANVIXA](https://twiraa.com/anvixa): A free marketing intelligence assessment tool — a 50-question diagnostic with industry-benchmarked scoring, a radar chart of strengths/gaps, and a 90-day roadmap, delivered as a downloadable report.
+- [ANVIXA](https://twiraa.com/anvixa): A free marketing intelligence assessment tool — a 50-question diagnostic with industry-benchmarked scoring against peers, a strengths/gaps breakdown, and a 90-day roadmap, delivered instantly on-screen.
 - [Blog](https://twiraa.com/blog/): Articles on brand strategy, demand generation, and the IQ+EQ approach to marketing.
 
 ## Company

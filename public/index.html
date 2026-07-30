@@ -22,13 +22,52 @@
 .logo{display:inline-block;background-image:var(--logo-url);background-repeat:no-repeat;background-position:left center;background-size:contain;aspect-ratio:900/128;vertical-align:middle}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.6;min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.6;min-height:100vh;cursor:none}
 .screen{display:none;min-height:100vh}.screen.active{display:block}
 strong,b{font-weight:600}
 
+/* ══ CUSTOM CURSOR (matches twiraa.com) ══ */
+.cursor{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+.cursor-ring{width:30px;height:30px;border:1.5px solid rgba(61,158,137,.35);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s cubic-bezier(.23,1,.32,1),border-color .2s,width .2s,height .2s}
+@media(max-width:768px){.cursor,.cursor-ring{display:none}body{cursor:auto}}
+
+/* ══ SCROLL PROGRESS + PARTICLES (matches twiraa.com homepage) ══ */
+#spbar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));width:0%;z-index:500;transition:width .1s linear}
+.hero-particles{position:absolute;inset:0;z-index:2;pointer-events:none}
+.particle{position:absolute;border-radius:50%;background:var(--gold-lt);animation:particleDrift linear infinite;will-change:transform,opacity}
+@keyframes particleDrift{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:.6}100%{transform:translateY(-100vh) translateX(var(--dx));opacity:0}}
+
+/* ══ TWIRAA HEADER/FOOTER (matches twiraa.com — intro screen only) ══ */
+.tw-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;position:relative;z-index:5}
+.tw-nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;letter-spacing:.06em;color:#fff;text-decoration:none;font-weight:500}
+.tw-nav ul{display:flex;align-items:center;gap:28px;list-style:none}
+.tw-nav ul li a{font-size:11.5px;font-weight:400;letter-spacing:.1em;color:rgba(248,245,239,.6);text-decoration:none;text-transform:uppercase;transition:color .3s}
+.tw-nav ul li a:hover{color:var(--gold-lt)}
+.tw-nav-current{color:var(--gold-lt)!important;border-bottom:1px solid var(--gold-lt);padding-bottom:2px}
+.tw-nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:9px 18px;border-radius:3px;font-weight:500!important}
+.tw-nav-cta:hover{background:var(--gold-lt)!important}
+@media(max-width:900px){.tw-nav{flex-wrap:wrap;gap:.75rem;justify-content:center;padding:16px 20px}.tw-nav ul{flex-wrap:wrap;justify-content:center;gap:14px}}
+
+.tw-footer{background:rgba(0,0,0,.15);border-top:1px solid rgba(247,249,250,.05);padding:48px 48px 28px;position:relative;z-index:5}
+.tw-ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.tw-fl-tag{font-size:12.5px;color:rgba(248,245,239,.55);font-weight:300;line-height:1.76;max-width:240px;margin-bottom:14px}
+.tw-fl-contact{font-size:12.5px;color:rgba(248,245,239,.55);font-weight:300;display:flex;flex-direction:column;gap:6px}
+.tw-fl-contact a{color:rgba(248,245,239,.55);text-decoration:none}
+.tw-fl-contact a:hover{color:var(--gold-lt)}
+.tw-fc h4{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.tw-fc ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.tw-fc ul li a{font-size:13px;color:rgba(248,245,239,.55);text-decoration:none;font-weight:300}
+.tw-fc ul li a:hover{color:var(--gold-lt)}
+.tw-fb{border-top:1px solid rgba(247,249,250,.05);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tw-fb-copy{font-size:12px;color:rgba(247,249,250,.3)}
+.tw-fb-badge{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold-lt);letter-spacing:.1em;font-style:italic}
+@media(max-width:760px){.tw-ft{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:480px){.tw-ft{grid-template-columns:1fr}}
+
 /* ══ INTRO ══ */
 #intro{display:none;background:var(--ink);color:var(--cream);min-height:100vh;position:relative;overflow:hidden}
-#intro.active{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem}
+#intro.active{display:block}
+.intro-hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 2rem 3rem;position:relative}
 .orb{position:absolute;border-radius:50%;pointer-events:none}
 .orb1{top:-25%;left:-20%;width:80vw;height:80vw;background:radial-gradient(circle,rgba(61,158,137,.14) 0%,transparent 65%)}
 .orb2{bottom:-30%;right:-15%;width:65vw;height:65vw;background:radial-gradient(circle,rgba(61,158,137,.08) 0%,transparent 65%)}
@@ -38,7 +77,6 @@ strong,b{font-weight:600}
 .i-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;line-height:1.05;margin-bottom:1.2rem;position:relative;z-index:1;color:#fff}
 .i-title em{font-style:italic;color:var(--gold-lt)}
 .i-desc{max-width:500px;font-weight:300;color:rgba(248,245,239,.65);margin-bottom:2rem;position:relative;z-index:1;font-size:16px;line-height:1.75}
-.i-pitch{max-width:520px;background:rgba(61,158,137,.12);border:1px solid rgba(61,158,137,.25);padding:1rem 1.25rem;margin-bottom:2.5rem;position:relative;z-index:1;font-size:14px;color:var(--gold-lt);line-height:1.7;font-style:italic}
 .i-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;position:relative;z-index:1}
 .i-stat{text-align:center}
 .i-stat-n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold-lt);display:block;line-height:1}
@@ -341,33 +379,87 @@ table.data tr.rowlink:hover{background:var(--gold-pale)}
 
 <body>
 
+<div id="spbar"></div>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
 <!-- ══ INTRO ══ -->
 <section id="intro" class="screen active">
-  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
-  <div class="i-rule"></div>
-  <div class="i-eyebrow" style="margin-bottom:.9rem"><span class="logo" role="img" aria-label="ANVIXA" style="height:44px"></span></div>
-  <div class="i-eyebrow" style="margin-bottom:1.5rem">MARKETING INTELLIGENCE PLATFORM</div>
-  <h1 class="i-title">Is your marketing<br>engine <em>actually</em> working?</h1>
-  <p class="i-desc">Most companies are leaving 25–35% of potential revenue on the table because of marketing gaps they cannot see — and therefore cannot fix.</p>
-  <div class="i-pitch">"The only diagnostic that benchmarks your marketing maturity against your industry and revenue stage — and tells you exactly what to fix first." <span style="display:block;margin-top:.5rem;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(61,158,137,.6)">— ANVIXA, a Twiraa Creatives platform</span></div>
-  <div class="i-stats">
-    <div class="i-stat"><span class="i-stat-n">50</span><span class="i-stat-l">Questions</span></div>
-    <div class="i-stat"><span class="i-stat-n">20</span><span class="i-stat-l">Minutes</span></div>
-    <div class="i-stat"><span class="i-stat-n">5</span><span class="i-stat-l">Dimensions</span></div>
+  <nav class="tw-nav">
+    <a href="https://twiraa.com" class="tw-nav-logo">TWIRAA</a>
+    <ul>
+      <li><a href="https://twiraa.com/#offerings">Offerings</a></li>
+      <li><a href="https://twiraa.com/#process">How It Works</a></li>
+      <li><a href="https://twiraa.com/#why">Why Twiraa</a></li>
+      <li><a href="https://twiraa.com/blog/">Blog</a></li>
+      <li><a href="/anvixa" class="tw-nav-current">ANVIXA</a></li>
+      <li><a href="https://twiraa.com/#audit" class="tw-nav-cta">Claim Audit Slot</a></li>
+    </ul>
+  </nav>
+  <div class="intro-hero">
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+    <div id="particles" class="hero-particles"></div>
+    <div class="i-rule"></div>
+    <div class="i-eyebrow" style="margin-bottom:.9rem"><span class="logo" role="img" aria-label="ANVIXA" style="height:44px"></span></div>
+    <div class="i-eyebrow" style="margin-bottom:1.5rem">MARKETING INTELLIGENCE PLATFORM</div>
+    <h1 class="i-title">Is your marketing<br>engine <em>actually</em> working?</h1>
+    <p class="i-desc">Most companies are leaving 25–35% of potential revenue on the table because of marketing gaps they cannot see — and therefore cannot fix.</p>
+    <div class="i-stats">
+      <div class="i-stat"><span class="i-stat-n">50</span><span class="i-stat-l">Questions</span></div>
+      <div class="i-stat"><span class="i-stat-n">20</span><span class="i-stat-l">Minutes</span></div>
+      <div class="i-stat"><span class="i-stat-n">5</span><span class="i-stat-l">Dimensions</span></div>
+    </div>
+    <div class="i-features">
+      <span class="i-feat"><span class="i-feat-dot"></span>Live peer benchmarking</span>
+      <span class="i-feat"><span class="i-feat-dot"></span>Personalised roadmap</span>
+      <span class="i-feat"><span class="i-feat-dot"></span>Boardroom-ready report</span>
+    </div>
+    <button class="btn-start" onclick="goIntake()">Start Your Assessment &rarr;</button>
+    <p class="i-trust">Confidential &nbsp;&middot;&nbsp; No data sold &nbsp;&middot;&nbsp; Results delivered instantly</p>
+    <p class="i-trust" style="margin-top:.6rem"><button onclick="goAdminGate()" style="background:none;border:none;color:rgba(248,245,239,.45);text-decoration:underline;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">Twiraa team — Admin sign-in</button></p>
   </div>
-  <div class="i-features">
-    <span class="i-feat"><span class="i-feat-dot"></span>Live peer benchmarking</span>
-    <span class="i-feat"><span class="i-feat-dot"></span>Personalised roadmap</span>
-    <span class="i-feat"><span class="i-feat-dot"></span>Boardroom-ready report</span>
-  </div>
-  <button class="btn-start" onclick="goIntake()">Start Your Assessment &rarr;</button>
-  <p class="i-trust">Confidential &nbsp;&middot;&nbsp; No data sold &nbsp;&middot;&nbsp; Results delivered instantly</p>
-  <p class="i-trust" style="margin-top:.6rem"><button onclick="goAdminGate()" style="background:none;border:none;color:rgba(248,245,239,.45);text-decoration:underline;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">Twiraa team — Admin sign-in</button></p>
+  <footer class="tw-footer">
+    <div class="tw-ft">
+      <div>
+        <div class="tw-fl-tag">Brand-Led Demand Generation. IQ + EQ.</div>
+        <div class="tw-fl-contact">
+          <a href="mailto:hello@twiraa.com">hello@twiraa.com</a>
+          <span>Gurugram, India</span>
+        </div>
+      </div>
+      <div class="tw-fc"><h4>Offerings</h4><ul>
+        <li><a href="https://twiraa.com/#offerings">Strategy</a></li>
+        <li><a href="https://twiraa.com/#offerings">Demand Generation</a></li>
+        <li><a href="https://twiraa.com/#offerings">Creative &amp; Content</a></li>
+      </ul></div>
+      <div class="tw-fc"><h4>Company</h4><ul>
+        <li><a href="https://twiraa.com/#why">Why Twiraa</a></li>
+        <li><a href="https://twiraa.com/#about">IQ+EQ Framework</a></li>
+        <li><a href="https://twiraa.com/#process">How It Works</a></li>
+        <li><a href="https://twiraa.com/blog/">Blog</a></li>
+      </ul></div>
+      <div class="tw-fc"><h4>Get Started</h4><ul>
+        <li><a href="https://twiraa.com/#audit">Free Audit</a></li>
+        <li><a href="/anvixa">ANVIXA Assessment</a></li>
+        <li><a href="mailto:hello@twiraa.com">Contact Us</a></li>
+      </ul></div>
+    </div>
+    <div class="tw-fb">
+      <div class="tw-fb-copy">© 2026 Twiraa Creatives Pvt. Ltd.</div>
+      <div class="tw-fb-badge">IQ + EQ™</div>
+    </div>
+  </footer>
 </section>
 
 <!-- ══ INTAKE ══ -->
 <section id="intake" class="screen">
-  <div class="topbar"><span class="topbar-logo"><span class="logo" role="img" aria-label="ANVIXA" style="height:22px"></span></span><span class="topbar-step">Step 1 of 2 — Profile</span></div>
+  <div class="topbar">
+    <span style="display:flex;align-items:center;gap:1.25rem">
+      <span class="topbar-logo"><span class="logo" role="img" aria-label="ANVIXA" style="height:22px"></span></span>
+      <a href="https://twiraa.com" style="font-size:11px;color:rgba(248,245,239,.45);text-decoration:none;letter-spacing:.06em;white-space:nowrap">&larr; Back to twiraa.com</a>
+    </span>
+    <span class="topbar-step">Step 1 of 2 — Profile</span>
+  </div>
   <div class="intake-wrap">
     <h2 class="intake-title">Tell us about your business</h2>
     <p class="intake-sub">This calibrates your scores against industry and revenue-stage benchmarks and makes every recommendation specific to your context. Fields marked * are required.</p>
@@ -1396,6 +1488,53 @@ async function clearAllClients(){
     document.getElementById('seed-msg').textContent='All submissions cleared. Click "Load Sample Clients" to reload sample data.';
   }catch(e){console.error(e);}
 }
+
+/* ══════════════════ CUSTOM CURSOR (matches twiraa.com) ══════════════════ */
+(function(){
+  const cur=document.getElementById('cur'),ring=document.getElementById('curR');
+  if(!cur||!ring)return;
+  if('ontouchstart' in window){
+    cur.style.display='none';ring.style.display='none';document.body.style.cursor='auto';
+    return;
+  }
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+  // Delegated so it works for elements rendered later (quiz options, admin rows, etc.)
+  document.addEventListener('mouseover',e=>{
+    if(e.target.closest('a,button,input,select,.opt,.rowlink,.cat-card,.sug-card,.roadmap-card,.wa-float')){
+      ring.style.width='48px';ring.style.height='48px';ring.style.borderColor='rgba(61,158,137,.8)';
+    }
+  });
+  document.addEventListener('mouseout',e=>{
+    if(e.target.closest('a,button,input,select,.opt,.rowlink,.cat-card,.sug-card,.roadmap-card,.wa-float')){
+      ring.style.width='30px';ring.style.height='30px';ring.style.borderColor='rgba(61,158,137,.35)';
+    }
+  });
+})();
+
+/* ══════════════════ SCROLL PROGRESS (matches twiraa.com) ══════════════════ */
+(function(){
+  const spbar=document.getElementById('spbar');
+  if(!spbar)return;
+  window.addEventListener('scroll',()=>{
+    const max=document.body.scrollHeight-innerHeight;
+    spbar.style.width=(max>0?(scrollY/max)*100:0)+'%';
+  },{passive:true});
+})();
+
+/* ══════════════════ FLOATING PARTICLES ON HOME (matches twiraa.com) ══════════════════ */
+(function(){
+  const container=document.getElementById('particles');
+  if(!container)return;
+  for(let i=0;i<22;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const size=Math.random()*3+1, left=Math.random()*100, delay=Math.random()*12, dur=Math.random()*10+8, dx=(Math.random()-0.5)*120;
+    p.style.cssText=`width:${size}px;height:${size}px;left:${left}%;bottom:-20px;opacity:0;--dx:${dx}px;animation-duration:${dur}s;animation-delay:-${delay}s;`;
+    container.appendChild(p);
+  }
+})();
 
 </script>
 </body>
